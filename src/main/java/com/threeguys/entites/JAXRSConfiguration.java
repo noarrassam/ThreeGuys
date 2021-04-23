@@ -1,4 +1,4 @@
-package com.mycompany.threeguyswebservice;
+package com.threeguys.entites;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
