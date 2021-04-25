@@ -18,5 +18,7 @@ Any value defined here will override the pom.xml file value but is only applicab
         <netbeans.hint.jdkPlatform>JDK_1.8</netbeans.hint.jdkPlatform>
         <org-netbeans-modules-maven-jaxws.rest_2e_config_2e_type>ide</org-netbeans-modules-maven-jaxws.rest_2e_config_2e_type>
         <org-netbeans-modules-maven-jaxws._5f_C_5f_ReviewsServ>http://localhost:8080/WebService/ReviewsServ?WSDL</org-netbeans-modules-maven-jaxws._5f_C_5f_ReviewsServ>
+        <org-netbeans-modules-maven-jaxws._5f_C_5f_UsersImpService>http://localhost:8080/WebService/UsersImpService?WSDL</org-netbeans-modules-maven-jaxws._5f_C_5f_UsersImpService>
+        <org-netbeans-modules-maven-jaxws._5f_C_5f_CarsImpService>http://localhost:8080/WebService/CarsImpService?WSDL</org-netbeans-modules-maven-jaxws._5f_C_5f_CarsImpService>
     </properties>
 </project-shared-configuration>

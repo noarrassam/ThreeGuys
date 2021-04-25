@@ -1,5 +1,8 @@
-
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" isErrorPage="true" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
+	"http://www.w3.org/TR/html4/loose.dtd">
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +18,7 @@
 	<script><%@include file="/resources/js/jquery-3.4.1.min.js" %></script>
 	<script><%@include file="/resources/js/bootstrap.min.js" %></script>
 	<style type="text/css">
-        body {
+      {
 	/* width : 80%; */
 	color: #566787;
 	background: linear-gradient(90deg, rgba(122,127,133,1) 0%, rgba(228,232,237,1) 49%, rgba(122,127,133,1) 100%, rgba(88,95,102,0.975249474789916) 100%);

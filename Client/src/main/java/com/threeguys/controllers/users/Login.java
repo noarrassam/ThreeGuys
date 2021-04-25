@@ -3,34 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.threeguys.controllers.reviews;
+package com.threeguys.controllers.users;
 
-import com.threeguys.services.Reviews;
-import com.threeguys.services.ReviewsServ;
-import com.threeguys.services.ReviewsServ_Service;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.function.Supplier;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import javax.xml.ws.WebServiceRef;
 
 /**
  *
- * @author mint
+ * @author noorr
  */
-@WebServlet(name = "list", urlPatterns = {"/reviews"})
-public class list extends HttpServlet {
-
-    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/WebService/ReviewsServ.wsdl")
-    private ReviewsServ_Service service;
+@WebServlet(name = "Login", urlPatterns = {"/Login"})
+public class Login extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -43,36 +31,19 @@ public class list extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-                HttpSession session = request.getSession();
-		if (session.getAttribute("urole").equals("Administrator") || session.getAttribute("urole").equals("Manager")) {
-		
-                List<Reviews> result = new ArrayList<Reviews>();
-                try {
-                    ReviewsServ port = service.getReviewsServPort();
-                    result = port.getList();
-                } catch (Exception ex) {
-                    // TODO handle custom exceptions here
-                   
-               }    
-                
-
-                if (request.getParameter("search") != null) {
-			if (!request.getParameter("search").trim().isEmpty()) {
-				request.setAttribute("search", request.getParameter("search").trim());
-	//			request.setAttribute("list", Supplier.search(request.getParameter("search")));	
-			} else {
-				request.setAttribute("list", result);
-			}
-		} else {
-			request.setAttribute("list", result);
-		}
-		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/reviews/table.jsp");
-		dispatcher.forward(request, response);
-                
-		} else {
-			throw new RuntimeException("Invalid access");
-		}
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet Login</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet Login at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

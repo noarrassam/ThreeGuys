@@ -7,9 +7,9 @@ package com.threeguys.controllers.reviews;
 
 
 import com.threeguys.services.Reviews;
-import java.io.IOException;
 import com.threeguys.services.ReviewsServ;
 import com.threeguys.services.ReviewsServ_Service;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
@@ -18,6 +18,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.ws.rs.core.Request;
 import javax.xml.ws.WebServiceRef;
 
 /**
@@ -71,13 +72,10 @@ public class add extends HttpServlet {
             throws ServletException, IOException {
         request.setAttribute("action", "add");
         RequestDispatcher dispatcher = request.getRequestDispatcher("/reviews/form.jsp");
-        
-        
-        
-        
+          
         Reviews newReview = new Reviews();
 
-        //Request Verification (within Model for clean code)
+//        Request Verification (within Model for clean code)
 //                request.setAttribute("errName", newSupplier.setName(request.getParameter("name")));
 //                request.setAttribute("errContact", newSupplier.setContact(request.getParameter("contact")));
 //                request.setAttribute("errTelephone", newSupplier.setTelephone(request.getParameter("telephone")));
@@ -97,7 +95,7 @@ public class add extends HttpServlet {
 
         } 
                 
-                //request.setAttribute("SucCtlMsg", "Supplier Added Successfully");
+                request.setAttribute("SucCtlMsg", "Supplier Added Successfully");
         
         List<Reviews> result = new ArrayList<Reviews>();        
         try {
@@ -110,10 +108,10 @@ public class add extends HttpServlet {
                 request.setAttribute("list", result);
                 dispatcher = request.getRequestDispatcher("/reviews/table.jsp");
                 // TODO redirect to Details
-                //
-       // }
+                
+        }
 
-        dispatcher.forward(request, response);
+  //      dispatcher.forward(request, response);
     }
 
     /**
@@ -121,9 +119,9 @@ public class add extends HttpServlet {
      *
      * @return a String containing servlet description
      */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
+//    @Override
+//    public String getServletInfo() {
+//        return "Short description";
+//    }// </editor-fold>
 
-}
+//}
