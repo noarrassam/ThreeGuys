@@ -25,7 +25,7 @@ public class UsersImp {
         return user.getAllUsers();
     }
     
-    public List<Users> LoginUser(String username, String password) {
+    public List<Users> LoginUser(int id, String username, String password) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("my_persistence_unit");
         UsersJpaController user = new UsersJpaController(emf);
         return user.getUser(username, password);
@@ -36,6 +36,7 @@ public class UsersImp {
         UsersJpaController userRepo = new UsersJpaController(emf);
 
         Users user = new Users();
+        //user.setId(id);
         user.setFname(fname);
         user.setLname(lname);
         user.setPassword(pass);
@@ -46,7 +47,7 @@ public class UsersImp {
         return true;
     }
 
-    public Boolean EdittUser(String fname, String lname, String pass, String username) throws Exception {
+    public Boolean EdittUser(int id, String fname, String lname, String pass, String username) throws Exception {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("my_persistence_unit");
         UsersJpaController userRepo = new UsersJpaController(emf);
 

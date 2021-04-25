@@ -9,6 +9,8 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.NamedQueries;
@@ -41,10 +43,12 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Cars implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "id")
+//    @Id
+//    @Basic(optional = false)
+//    @NotNull
+//    @Column(name = "id")
+    @Id 
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer id;
     @Size(max = 45)
     @Column(name = "model")
