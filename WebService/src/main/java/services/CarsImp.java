@@ -18,14 +18,14 @@ import javax.persistence.Persistence;
  */
 @WebService(endpointInterface = "interfaceApp.ICars")
 public class CarsImp {
-      
-        public List<Cars> GetAllCars() {
+    
+    public List<Cars> GetAllCars() {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("my_persistence_unit");
         CarsJpaController car = new CarsJpaController(emf);
         return car.getAllCars();
-      }
-      
-        public Boolean InsertCar(String model, byte[] image, String year, int price, String type, String brand, String transmission, String engine, String dis, String prm) throws Exception {
+    }
+    
+    public Boolean InsertCar(String model, byte[] image, String year, int price, String type, String brand, String transmission, String engine, String dis, String prm) throws Exception {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("my_persistence_unit");
         CarsJpaController carRepo = new CarsJpaController(emf);
         
@@ -44,8 +44,8 @@ public class CarsImp {
         
         return true;
     }
-        
-        public Boolean EditCar(String model, byte[] image, String year, int price, String type, String brand, String transmission, String engine, String dis, String prm) throws Exception {
+    
+    public Boolean EditCar(String model, byte[] image, String year, int price, String type, String brand, String transmission, String engine, String dis, String prm) throws Exception {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("my_persistence_unit");
         CarsJpaController carRepo = new CarsJpaController(emf);
         
@@ -63,26 +63,17 @@ public class CarsImp {
         carRepo.edit(car);
         
         return true;
-    }   
+    }    
+    
+    public Boolean DeletetCar(int id) throws Exception {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("my_persistence_unit");
+        CarsJpaController carRepo = new CarsJpaController(emf);
         
-//        public Boolean DeleteCar() throws Exception {
-//        EntityManagerFactory emf = Persistence.createEntityManagerFactory("my_persistence_unit");
-//        CarsJpaController carRepo = new CarsJpaController(emf);
+        Cars car = new Cars();
+        car.setId(id);
         
-//        Cars car = new Cars();
-//        car.setModel(model);
-//        car.setImage(image);
-//        car.setYear(price);
-//        car.setType(type);
-//        car.setBrand(brand);
-//        car.setTransmission(transmission);
-//        car.setEngine(engine);
-//        car.setDisplacement(dis);
-//        car.setMaxRPM(prm);
+        carRepo.create(car);
         
-        //carRepo.create(car);
-        
- //       return true;
- //   }
+        return true;
+    }
 }
-

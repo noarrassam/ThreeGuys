@@ -30,7 +30,7 @@ public interface ICars {
     @WebResult(name="editCar")
     public Boolean EditCar(String model, byte[] image, String year, int price, String type, String brand, String transmission, String engine, String dis, String prm);
     
-//    @WebMethod
-//    @WebResult(name="deleteCar")
-//    public Boolean DeletetCar(String model, String image, String year, int price);
+    @WebMethod
+    @WebResult(name="deleteCar")
+    public Boolean DeletetCar(int id);
 }
