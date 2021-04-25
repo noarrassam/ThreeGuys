@@ -141,11 +141,10 @@ public class CarsJpaController implements Serializable {
         }
     }
     
-     public List<Cars> getAllCars(){
-     EntityManager em = getEntityManager();
+    public List<Cars> getAllCars(){
+    EntityManager em = getEntityManager();
         
-     Query query = em.createNamedQuery("Cars.findAll");
-     return query.getResultList();
-    }
-    
+    Query query = em.createNamedQuery("Cars.findAll");
+    return query.getResultList();
+   }
 }

@@ -5,8 +5,8 @@
  */
 package com.threeguys.controllers;
 
-import com.threeguys.controllers.exceptions.NonexistentEntityException;
-import com.threeguys.controllers.exceptions.PreexistingEntityException;
+import com.mycompany.threeguyswebservice.resources.exceptions.NonexistentEntityException;
+import com.mycompany.threeguyswebservice.resources.exceptions.PreexistingEntityException;
 import com.threeguys.entites.Cars;
 import com.threeguys.entites.Users;
 import java.io.Serializable;
@@ -153,6 +153,6 @@ public class UsersJpaController implements Serializable {
      EntityManager em = getEntityManager();
         
      Query query = em.createNamedQuery("Users.findAll");
-     return query.getResultList();  
-    }    
+     return query.getResultList();
+    } 
 }

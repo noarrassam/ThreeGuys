@@ -36,7 +36,6 @@ public class UsersImp {
         UsersJpaController userRepo = new UsersJpaController(emf);
 
         Users user = new Users();
-        //user.setId(id);
         user.setFname(fname);
         user.setLname(lname);
         user.setPassword(pass);
