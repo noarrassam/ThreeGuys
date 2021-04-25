@@ -5,5 +5,15 @@
     <non-jta-data-source>jdbc/EAM3G</non-jta-data-source>
     <class>com.threeguys.entites.Cars</class>
     <class>com.threeguys.entites.Reviews</class>
+    <class>com.threeguys.entites.Users</class>
+    <class>com.threeguys.entites.Car</class>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://database-2.citpn6baixlv.us-east-2.rds.amazonaws.com:3306/ThreeGuys?zeroDateTimeBehavior=CONVERT_TO_NULL"/>
+      <property name="javax.persistence.jdbc.user" value="admin"/>
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+      <property name="javax.persistence.jdbc.password" value="qweasdzxc123"/>
+      <property name="javax.persistence.schema-generation.database.action" value="create"/>
+    </properties>
   </persistence-unit>
 </persistence>

@@ -10,6 +10,7 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -19,18 +20,20 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author mint
+ * @author noorr
  */
 @Entity
-@Table(name = "cars")
+@Table(name = "Cars")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Cars.findAll", query = "SELECT c FROM Cars c"),
-    @NamedQuery(name = "Cars.findByCarID", query = "SELECT c FROM Cars c WHERE c.carID = :carID"),
-    @NamedQuery(name = "Cars.findByType", query = "SELECT c FROM Cars c WHERE c.type = :type"),
-    @NamedQuery(name = "Cars.findByBrand", query = "SELECT c FROM Cars c WHERE c.brand = :brand"),
+    @NamedQuery(name = "Cars.findById", query = "SELECT c FROM Cars c WHERE c.id = :id"),
     @NamedQuery(name = "Cars.findByModel", query = "SELECT c FROM Cars c WHERE c.model = :model"),
     @NamedQuery(name = "Cars.findByYear", query = "SELECT c FROM Cars c WHERE c.year = :year"),
+    @NamedQuery(name = "Cars.findByPrice", query = "SELECT c FROM Cars c WHERE c.price = :price"),
+    @NamedQuery(name = "Cars.findByFeedId", query = "SELECT c FROM Cars c WHERE c.feedId = :feedId"),
+    @NamedQuery(name = "Cars.findByType", query = "SELECT c FROM Cars c WHERE c.type = :type"),
+    @NamedQuery(name = "Cars.findByBrand", query = "SELECT c FROM Cars c WHERE c.brand = :brand"),
     @NamedQuery(name = "Cars.findByTransmission", query = "SELECT c FROM Cars c WHERE c.transmission = :transmission"),
     @NamedQuery(name = "Cars.findByEngine", query = "SELECT c FROM Cars c WHERE c.engine = :engine"),
     @NamedQuery(name = "Cars.findByDisplacement", query = "SELECT c FROM Cars c WHERE c.displacement = :displacement"),
@@ -41,45 +44,92 @@ public class Cars implements Serializable {
     @Id
     @Basic(optional = false)
     @NotNull
-    @Column(name = "carID")
-    private Integer carID;
-    @Size(max = 45)
-    @Column(name = "type")
-    private String type;
-    @Size(max = 45)
-    @Column(name = "brand")
-    private String brand;
+    @Column(name = "id")
+    private Integer id;
     @Size(max = 45)
     @Column(name = "model")
     private String model;
-    @Size(max = 45)
+    @Lob
+    @Column(name = "image")
+    private byte[] image;
     @Column(name = "year")
-    private String year;
-    @Size(max = 45)
+    private Integer year;
+    @Column(name = "price")
+    private Integer price;
+    @Column(name = "feedId")
+    private Integer feedId;
+    @Size(max = 50)
+    @Column(name = "type")
+    private String type;
+    @Size(max = 50)
+    @Column(name = "brand")
+    private String brand;
+    @Size(max = 60)
     @Column(name = "transmission")
     private String transmission;
-    @Size(max = 45)
+    @Size(max = 50)
     @Column(name = "engine")
     private String engine;
+    @Size(max = 50)
     @Column(name = "displacement")
-    private Integer displacement;
-    @Size(max = 45)
+    private String displacement;
+    @Size(max = 50)
     @Column(name = "maxRPM")
     private String maxRPM;
 
     public Cars() {
     }
 
-    public Cars(Integer carID) {
-        this.carID = carID;
+    public Cars(Integer id) {
+        this.id = id;
     }
 
-    public Integer getCarID() {
-        return carID;
+    public Integer getId() {
+        return id;
     }
 
-    public void setCarID(Integer carID) {
-        this.carID = carID;
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
+
+    public Integer getYear() {
+        return year;
+    }
+
+    public void setYear(Integer year) {
+        this.year = year;
+    }
+
+    public Integer getPrice() {
+        return price;
+    }
+
+    public void setPrice(Integer price) {
+        this.price = price;
+    }
+
+    public Integer getFeedId() {
+        return feedId;
+    }
+
+    public void setFeedId(Integer feedId) {
+        this.feedId = feedId;
     }
 
     public String getType() {
@@ -98,22 +148,6 @@ public class Cars implements Serializable {
         this.brand = brand;
     }
 
-    public String getModel() {
-        return model;
-    }
-
-    public void setModel(String model) {
-        this.model = model;
-    }
-
-    public String getYear() {
-        return year;
-    }
-
-    public void setYear(String year) {
-        this.year = year;
-    }
-
     public String getTransmission() {
         return transmission;
     }
@@ -130,11 +164,11 @@ public class Cars implements Serializable {
         this.engine = engine;
     }
 
-    public Integer getDisplacement() {
+    public String getDisplacement() {
         return displacement;
     }
 
-    public void setDisplacement(Integer displacement) {
+    public void setDisplacement(String displacement) {
         this.displacement = displacement;
     }
 
@@ -149,7 +183,7 @@ public class Cars implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (carID != null ? carID.hashCode() : 0);
+        hash += (id != null ? id.hashCode() : 0);
         return hash;
     }
 
@@ -160,7 +194,7 @@ public class Cars implements Serializable {
             return false;
         }
         Cars other = (Cars) object;
-        if ((this.carID == null && other.carID != null) || (this.carID != null && !this.carID.equals(other.carID))) {
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
         return true;
@@ -168,7 +202,7 @@ public class Cars implements Serializable {
 
     @Override
     public String toString() {
-        return "com.mycompany.threeguyswebservice.Cars[ carID=" + carID + " ]";
+        return "com.threeguys.entites.Cars[ id=" + id + " ]";
     }
     
 }
