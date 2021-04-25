@@ -65,11 +65,11 @@ public class CarsImp {
         return true;
     }   
         
-        public Boolean DeleteCar() throws Exception {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("my_persistence_unit");
-        CarsJpaController carRepo = new CarsJpaController(emf);
+//        public Boolean DeleteCar() throws Exception {
+//        EntityManagerFactory emf = Persistence.createEntityManagerFactory("my_persistence_unit");
+//        CarsJpaController carRepo = new CarsJpaController(emf);
         
-        Cars car = new Cars();
+//        Cars car = new Cars();
 //        car.setModel(model);
 //        car.setImage(image);
 //        car.setYear(price);
@@ -80,9 +80,9 @@ public class CarsImp {
 //        car.setDisplacement(dis);
 //        car.setMaxRPM(prm);
         
-        carRepo.create(car);
+        //carRepo.create(car);
         
-        return true;
-    }
+ //       return true;
+ //   }
 }
 

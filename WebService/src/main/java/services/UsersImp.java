@@ -19,7 +19,7 @@ import javax.persistence.Persistence;
 @WebService(endpointInterface = "interfaceApp.IUser")
 public class UsersImp {
       
-      public List<Users> GetAllUsers() {
+        public List<Users> GetAllUsers() {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("my_persistence_unit");
         UsersJpaController user = new UsersJpaController(emf);
         return user.getAllUsers();

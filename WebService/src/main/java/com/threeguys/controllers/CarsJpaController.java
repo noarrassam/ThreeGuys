@@ -8,7 +8,6 @@ package com.threeguys.controllers;
 import com.mycompany.threeguyswebservice.resources.exceptions.NonexistentEntityException;
 import com.mycompany.threeguyswebservice.resources.exceptions.PreexistingEntityException;
 import com.threeguys.entites.Cars;
-import com.threeguys.entites.Users;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.EntityManager;

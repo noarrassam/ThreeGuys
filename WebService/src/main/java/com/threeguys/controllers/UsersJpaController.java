@@ -141,11 +141,10 @@ public class UsersJpaController implements Serializable {
         }
     }
     
-     public List<Users> getAllUsers(){
-     EntityManager em = getEntityManager();
+    public List<Users> getAllUsers(){
+    EntityManager em = getEntityManager();
         
-     Query query = em.createNamedQuery("Users.findAll");
-     return query.getResultList();
+    Query query = em.createNamedQuery("Users.findAll");
+    return query.getResultList();
     }
-    
 }
