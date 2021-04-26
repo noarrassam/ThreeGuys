@@ -5,6 +5,7 @@
  */
 package interfaceApp;
 
+import com.threeguys.entites.Cars;
 import com.threeguys.entites.Users;
 import java.util.List;
 import javax.jws.WebMethod;
@@ -20,7 +21,7 @@ public interface ICars {
     
     @WebMethod
     @WebResult(name="allCars")
-    public List<Users> GetAllCars(); 
+    public List<Cars> GetAllCars(); 
     
     @WebMethod
     @WebResult(name="insertCar")

@@ -25,7 +25,7 @@ public class UsersImp {
         return user.getAllUsers();
     }
     
-    public List<Users> LoginUser(int id, String username, String password) {
+    public List<Users> LoginUser(String username, String password) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("my_persistence_unit");
         UsersJpaController user = new UsersJpaController(emf);
         return user.getUser(username, password);

@@ -31,6 +31,6 @@ public interface IUser {
     public Boolean EdittUser(int id, String fname, String lname, String pass, String username);
     
     @WebMethod
-    @WebResult(name = "editAuth")
-    public Boolean LoginUser(int id, String username, String pass);
+    @WebResult(name = "loginAuth")
+    public Boolean LoginUser(String username, String pass);
 }
