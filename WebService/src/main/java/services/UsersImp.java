@@ -9,8 +9,14 @@ import com.threeguys.controllers.UsersJpaController;
 import com.threeguys.entites.Users;
 import java.util.List;
 import javax.jws.WebService;
+import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -24,11 +30,33 @@ public class UsersImp {
         UsersJpaController user = new UsersJpaController(emf);
         return user.getAllUsers();
     }
-    
-    public List<Users> LoginUser(String username, String password) {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("my_persistence_unit");
-        UsersJpaController user = new UsersJpaController(emf);
-        return user.getUser(username, password);
+
+    public Boolean LoginUser(String username, String password) {
+
+        try {
+            Users use = new Users();
+
+            EntityManagerFactory emf = Persistence.createEntityManagerFactory("my_persistence_unit");
+            EntityManager em = emf.createEntityManager();
+            CriteriaBuilder cb = em.getCriteriaBuilder();
+            CriteriaQuery<Users> cq = cb.createQuery(Users.class);
+            Root<Users> root = cq.from(Users.class);
+            cq.where(
+                    cb.equal(root.get("username"), username),
+                    cb.equal(root.get("password"), password)
+            );
+
+            TypedQuery<Users> q = em.createQuery(cq);
+            Users login = q.getSingleResult();
+
+            if (login != null && login.getUsername() != null) {
+                return true;
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
     public Boolean InsertUser(String fname, String lname, String pass, String username) throws Exception {
