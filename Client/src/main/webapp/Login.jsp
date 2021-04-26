@@ -30,7 +30,8 @@
         </script> 
     </head>
     <body>
-        <div style="text-align:center"><h1>Login application in Java using MVC and MySQL </h1> </div>
+        <div style="text-align:center"><h1>Welcome to Cars Ratings and Reviews </h1> </div>
+        <div style="text-align:center"><h2>Please Login</h2> </div>
         <br>
         <form name="form" action="LoginServlet" method="post" onsubmit="return validate()">
             <!-- Do not use table to format fields. As a good practice use CSS -->
@@ -43,14 +44,15 @@
                     <td>Password</td>
                     <td><input type="password" name="password" /></td>
                 </tr>
-                <tr> <!-- refer to the video to understand request.getAttribute() -->
-                            <td><span style="color:red"><%=(request.getAttribute("errMessage") == null) ? ""
-                 : request.getAttribute("errMessage")%></span></td>
+                <tr> 
+                    <td><span style="color:red"><%=(request.getAttribute("errMessage") == null) ? "" : request.getAttribute("errMessage")%></span></td>
                 </tr>
                 <tr>
                     <td></td>
-                    <td><input type="submit" value="Login"></input><input
-                            type="reset" value="Reset"></input></td>
+                    <td>
+                        <input type="submit" value="Login"></input>
+                        <input type="reset" value="Reset"></input>
+                    </td>
                 </tr>
             </table>
         </form>

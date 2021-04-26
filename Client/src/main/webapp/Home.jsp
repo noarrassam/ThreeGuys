@@ -5,7 +5,6 @@
 --%>
 
 <%@page import="Helper.ConvHtml"%>
-<%@page import="Helper.ConvHtml"%>
 <%@page import="interfaceapp.Cars"%>
 <%@page import="services.ICars"%>
 <%@page import="java.util.List"%>
@@ -29,6 +28,7 @@
             try {
                 out.println(ConvHtml.GetHtml(carList, "Car List"));
             } catch (Exception e) {
+                e.printStackTrace();
             }
         %>
 

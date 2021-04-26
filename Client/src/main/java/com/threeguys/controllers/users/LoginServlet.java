@@ -5,7 +5,6 @@
  */
 package com.threeguys.controllers.users;
 
-import com.mvc.bean.LoginBean;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -81,9 +80,9 @@ public class LoginServlet extends HttpServlet {
 
         UsersImpService service = new UsersImpService();
         IUser port = service.getUsersImpPort();
-        Boolean offerList = port.loginUser(userName, password);
+        boolean offerList = port.loginUser(userName, password);
 
-        if (offerList.equals("SUCCESS")) //If function returns success string then user will be rooted to Home page
+        if (offerList) //If function returns success string then user will be rooted to Home page
         {
             request.setAttribute("userName", userName); //with setAttribute() you can define a "key" and value pair so that you can get it in future using getAttribute("key")
             request.getRequestDispatcher("/Home.jsp").forward(request, response);//RequestDispatcher is used to send the control to the invoked page.

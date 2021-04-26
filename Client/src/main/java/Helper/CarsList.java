@@ -23,11 +23,11 @@ public class CarsList
     @XmlElement(name = "car")
     private List<Cars> cars;
 
-    public List<Cars> getOffers() {
+    public List<Cars> getCars() {
         return cars;
     }
 
-    public void setOffers(List<Cars> cars) {
+    public void setCars(List<Cars> cars) {
         this.cars = cars;
     }     
 }

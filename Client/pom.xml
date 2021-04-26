@@ -125,24 +125,6 @@
                         </goals>
                         <configuration>
                             <wsdlFiles>
-                                <wsdlFile>localhost_8080/WebService/UsersImpService.wsdl</wsdlFile>
-                            </wsdlFiles>
-                            <packageName></packageName>
-                            <vmArgs>
-                                <vmArg>-Djavax.xml.accessExternalSchema=all</vmArg>
-                            </vmArgs>
-                            <wsdlLocation>http://localhost:8080/WebService/UsersImpService?WSDL</wsdlLocation>
-                            <staleFile>${project.build.directory}/jaxws/stale/UsersImpService.stale</staleFile>
-                        </configuration>
-                        <id>wsimport-generate-UsersImpService</id>
-                        <phase>generate-sources</phase>
-                    </execution>
-                    <execution>
-                        <goals>
-                            <goal>wsimport</goal>
-                        </goals>
-                        <configuration>
-                            <wsdlFiles>
                                 <wsdlFile>localhost_8080/WebService/CarsImpService.wsdl</wsdlFile>
                             </wsdlFiles>
                             <packageName></packageName>
@@ -153,6 +135,24 @@
                             <staleFile>${project.build.directory}/jaxws/stale/CarsImpService.stale</staleFile>
                         </configuration>
                         <id>wsimport-generate-CarsImpService</id>
+                        <phase>generate-sources</phase>
+                    </execution>
+                    <execution>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                        <configuration>
+                            <wsdlFiles>
+                                <wsdlFile>localhost_8080/WebService/UsersImpService.wsdl</wsdlFile>
+                            </wsdlFiles>
+                            <packageName></packageName>
+                            <vmArgs>
+                                <vmArg>-Djavax.xml.accessExternalSchema=all</vmArg>
+                            </vmArgs>
+                            <wsdlLocation>http://localhost:8080/WebService/UsersImpService?WSDL</wsdlLocation>
+                            <staleFile>${project.build.directory}/jaxws/stale/UsersImpService.stale</staleFile>
+                        </configuration>
+                        <id>wsimport-generate-UsersImpService</id>
                         <phase>generate-sources</phase>
                     </execution>
                 </executions>

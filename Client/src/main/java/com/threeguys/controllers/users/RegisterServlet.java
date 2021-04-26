@@ -59,6 +59,7 @@ public class RegisterServlet extends HttpServlet {
         String lname = request.getParameter("lname");
         String userName = request.getParameter("username");
         String password = request.getParameter("password");
+        //String confirmPass = request.getParameter("password");
         
         UsersImpService service = new UsersImpService();
         IUser port = service.getUsersImpPort();

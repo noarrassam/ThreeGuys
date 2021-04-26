@@ -5,6 +5,7 @@
  */
 package com.threeguys.controllers.cars;
 
+import Helper.ConvHtml;
 import interfaceapp.Cars;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -75,7 +76,7 @@ public class CarServlet extends HttpServlet {
         
         try {
             PrintWriter out = response.getWriter();
-            //out.println(ConvHtml.GetHtml(carsList, "Offer List"));
+            out.println(ConvHtml.GetHtml(carsList, "Offer List"));
             
             out.println("<br/>");
             out.println("<a href='javascript:history.back()'>Go Back</a>");
