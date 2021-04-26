@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.threeguys.controllers.cars;
+package com.threeguys.controllers.users;
 
+import com.mvc.bean.LoginBean;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -12,13 +13,15 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import services.IUser;
+import services.UsersImpService;
 
 /**
  *
  * @author noorr
  */
-@WebServlet(name = "Cars", urlPatterns = {"/Cars"})
-public class Cars extends HttpServlet {
+@WebServlet(name = "LoginServlet", urlPatterns = {"/LoginServlet"})
+public class LoginServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,10 +40,10 @@ public class Cars extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Cars</title>");            
+            out.println("<title>Servlet LoginServlet</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet Cars at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet LoginServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -72,7 +75,22 @@ public class Cars extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+
+        String userName = request.getParameter("username");
+        String password = request.getParameter("password");
+
+        UsersImpService service = new UsersImpService();
+        IUser port = service.getUsersImpPort();
+        Boolean offerList = port.loginUser(userName, password);
+
+        if (offerList.equals("SUCCESS")) //If function returns success string then user will be rooted to Home page
+        {
+            request.setAttribute("userName", userName); //with setAttribute() you can define a "key" and value pair so that you can get it in future using getAttribute("key")
+            request.getRequestDispatcher("/Home.jsp").forward(request, response);//RequestDispatcher is used to send the control to the invoked page.
+        } else {
+            request.setAttribute("errMessage", offerList); //If authenticateUser() function returnsother than SUCCESS string it will be sent to Login page again. Here the error message returned from function has been stored in a errMessage key.
+            request.getRequestDispatcher("/Login.jsp").forward(request, response);//forwarding the request
+        }
     }
 
     /**

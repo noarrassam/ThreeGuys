@@ -4,17 +4,17 @@
 <xsd:import namespace="http://interfaceApp/" schemaLocation="http://localhost:8080/WebService/CarsImpService?xsd=1"/>
 </xsd:schema>
 </types>
-<message name="InsertCar">
-<part name="parameters" element="tns:InsertCar"/>
-</message>
-<message name="InsertCarResponse">
-<part name="parameters" element="tns:InsertCarResponse"/>
-</message>
 <message name="GetAllCars">
 <part name="parameters" element="tns:GetAllCars"/>
 </message>
 <message name="GetAllCarsResponse">
 <part name="parameters" element="tns:GetAllCarsResponse"/>
+</message>
+<message name="InsertCar">
+<part name="parameters" element="tns:InsertCar"/>
+</message>
+<message name="InsertCarResponse">
+<part name="parameters" element="tns:InsertCarResponse"/>
 </message>
 <message name="EditCar">
 <part name="parameters" element="tns:EditCar"/>
@@ -29,13 +29,13 @@
 <part name="parameters" element="tns:DeletetCarResponse"/>
 </message>
 <portType name="ICars">
-<operation name="InsertCar">
-<input xmlns:ns1="http://www.w3.org/2007/05/addressing/metadata" ns1:Action="http://interfaceApp/ICars/InsertCarRequest" message="tns:InsertCar"/>
-<output xmlns:ns2="http://www.w3.org/2007/05/addressing/metadata" ns2:Action="http://interfaceApp/ICars/InsertCarResponse" message="tns:InsertCarResponse"/>
-</operation>
 <operation name="GetAllCars">
-<input xmlns:ns3="http://www.w3.org/2007/05/addressing/metadata" ns3:Action="http://interfaceApp/ICars/GetAllCarsRequest" message="tns:GetAllCars"/>
-<output xmlns:ns4="http://www.w3.org/2007/05/addressing/metadata" ns4:Action="http://interfaceApp/ICars/GetAllCarsResponse" message="tns:GetAllCarsResponse"/>
+<input xmlns:ns1="http://www.w3.org/2007/05/addressing/metadata" ns1:Action="http://interfaceApp/ICars/GetAllCarsRequest" message="tns:GetAllCars"/>
+<output xmlns:ns2="http://www.w3.org/2007/05/addressing/metadata" ns2:Action="http://interfaceApp/ICars/GetAllCarsResponse" message="tns:GetAllCarsResponse"/>
+</operation>
+<operation name="InsertCar">
+<input xmlns:ns3="http://www.w3.org/2007/05/addressing/metadata" ns3:Action="http://interfaceApp/ICars/InsertCarRequest" message="tns:InsertCar"/>
+<output xmlns:ns4="http://www.w3.org/2007/05/addressing/metadata" ns4:Action="http://interfaceApp/ICars/InsertCarResponse" message="tns:InsertCarResponse"/>
 </operation>
 <operation name="EditCar">
 <input xmlns:ns5="http://www.w3.org/2007/05/addressing/metadata" ns5:Action="http://interfaceApp/ICars/EditCarRequest" message="tns:EditCar"/>
