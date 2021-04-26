@@ -53,6 +53,8 @@ public class Cars implements Serializable {
     @Size(max = 45)
     @Column(name = "model")
     private String model;
+    @Column(name = "filename")
+    private String Filename;
     @Lob
     @Column(name = "image")
     private byte[] image;
@@ -102,6 +104,14 @@ public class Cars implements Serializable {
 
     public void setModel(String model) {
         this.model = model;
+    }
+
+    public String getFilename() {
+        return Filename;
+    }
+
+    public void setFilename(String Filename) {
+        this.Filename = Filename;
     }
 
     public byte[] getImage() {

@@ -6,7 +6,6 @@
 package interfaceApp;
 
 import com.threeguys.entites.Cars;
-import com.threeguys.entites.Users;
 import java.util.List;
 import javax.jws.WebMethod;
 import javax.jws.WebResult;
@@ -25,11 +24,11 @@ public interface ICars {
     
     @WebMethod
     @WebResult(name="insertCar")
-    public Boolean InsertCar(String model, byte[] image, String year, int price, String type, String brand, String transmission, String engine, String dis, String prm);
+    public Boolean InsertCar(String brand, String dis, String engine, String filename, byte[] image, String prm, String model, int price, String transmission, String type, int year);
     
     @WebMethod
     @WebResult(name="editCar")
-    public Boolean EditCar(String model, byte[] image, String year, int price, String type, String brand, String transmission, String engine, String dis, String prm);
+    public Boolean EditCar(String brand, String dis, String engine, String filename, byte[] image, String prm, String model, int price, String transmission, String type, int year);
     
     @WebMethod
     @WebResult(name="deleteCar")

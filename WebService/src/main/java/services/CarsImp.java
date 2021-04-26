@@ -25,41 +25,47 @@ public class CarsImp {
         return car.getAllCars();
     }
     
-    public Boolean InsertCar(String model, byte[] image, String year, int price, String type, String brand, String transmission, String engine, String dis, String prm) throws Exception {
+    public Boolean InsertCar(String brand, String dis, String engine, String filename, byte[] image, String prm, String model, 
+            int price, String transmission, String type, int year) throws Exception {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("my_persistence_unit");
         CarsJpaController carRepo = new CarsJpaController(emf);
         
         Cars car = new Cars();
-        car.setModel(model);
-        car.setImage(image);
-        car.setYear(price);
-        car.setType(type);
         car.setBrand(brand);
-        car.setTransmission(transmission);
-        car.setEngine(engine);
         car.setDisplacement(dis);
+        car.setEngine(engine); 
+        car.setFilename(filename);
+        car.setImage(image);
         car.setMaxRPM(prm);
+        car.setModel(model);
+        car.setPrice(price);
+        car.setTransmission(transmission);
+        car.setType(type);
+        car.setYear(year);
         
         carRepo.create(car);
         
         return true;
     }
     
-    public Boolean EditCar(String model, byte[] image, String year, int price, String type, String brand, String transmission, String engine, String dis, String prm) throws Exception {
+    public Boolean EditCar(String brand, String dis, String engine, String filename, byte[] image, String prm, String model, 
+            int price, String transmission, String type, int year) throws Exception {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("my_persistence_unit");
         CarsJpaController carRepo = new CarsJpaController(emf);
         
         Cars car = new Cars();
-        car.setModel(model);
-        car.setImage(image);
-        car.setYear(price);
-        car.setType(type);
         car.setBrand(brand);
-        car.setTransmission(transmission);
-        car.setEngine(engine);
         car.setDisplacement(dis);
+        car.setEngine(engine); 
+        car.setFilename(filename);
+        car.setImage(image);
         car.setMaxRPM(prm);
-        
+        car.setModel(model);
+        car.setPrice(price);
+        car.setTransmission(transmission);
+        car.setType(type);
+        car.setYear(year);
+
         carRepo.edit(car);
         
         return true;
@@ -72,7 +78,7 @@ public class CarsImp {
         Cars car = new Cars();
         car.setId(id);
         
-        carRepo.create(car);
+        carRepo.destroy(id);
         
         return true;
     }
