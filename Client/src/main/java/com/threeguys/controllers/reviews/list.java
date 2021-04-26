@@ -43,8 +43,8 @@ public class list extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-                HttpSession session = request.getSession();
-		if (session.getAttribute("urole").equals("Administrator") || session.getAttribute("urole").equals("Manager")) {
+ //               HttpSession session = request.getSession();
+//		if (session.getAttribute("urole").equals("Administrator") || session.getAttribute("urole").equals("Manager")) {
 		
                 List<Reviews> result = new ArrayList<Reviews>();
                 try {
@@ -70,9 +70,9 @@ public class list extends HttpServlet {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/reviews/table.jsp");
 		dispatcher.forward(request, response);
                 
-		} else {
-			throw new RuntimeException("Invalid access");
-		}
+//		} else {
+//			throw new RuntimeException("Invalid access");
+//		}
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
