@@ -68,11 +68,11 @@ public class RegisterServlet extends HttpServlet {
 
         if (offerList.equals("SUCCESS")) //On success, you can display a message to user on Home page
         {
-            request.getRequestDispatcher("/Home.jsp").forward(request, response);
+            request.getRequestDispatcher("/home.jsp").forward(request, response);
         } else //On Failure, display a meaningful message to the User.
         {
             request.setAttribute("errMessage", offerList);
-            request.getRequestDispatcher("/Register.jsp").forward(request, response);
+            request.getRequestDispatcher("/register.jsp").forward(request, response);
         }
     }
 
