@@ -7,7 +7,7 @@ package com.threeguys.controllers.cars;
 
 import Helper.ConvHtml;
 import Helper.XMLHelper;
-import interfaceapp.Cars;
+import interfaceapp.Car;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -16,8 +16,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import services.CarsImpService;
-import services.ICars;
+import services.CarImpService;
+import services.ICar;
 
 /**
  *
@@ -68,22 +68,22 @@ public class CarServlet extends HttpServlet {
         String description = request.getParameter("search");
         
         //web service client, call method to search offers
-        CarsImpService service = new CarsImpService();
+        CarImpService service = new CarImpService();
         
-        ICars port = service.getCarsImpPort();
-        List<Cars> carsList = port.getAllCars();
+        ICar port = service.getCarImpPort();
+        List<Car> carList = port.getAllCars();
         
         response.setContentType("text/html;charset=UTF-8");
         
         try {
             PrintWriter out = response.getWriter();
-            out.println(ConvHtml.GetHtml(carsList, "Cars List"));
+            out.println(ConvHtml.GetHtml(carList, "Cars List"));
             
             out.println("<br/>");
             out.println("<a href='javascript:history.back()'>Go Back</a>");
             
             XMLHelper helper = new XMLHelper();
-            helper.saveFile(carsList);
+            helper.saveFile(carList);
             
         } catch (Exception e){
             e.printStackTrace();
@@ -101,9 +101,9 @@ public class CarServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-//        CarsImpService service = new CarsImpService();
-//        ICars port = service.getCarsImpPort();
-//        List<Cars> statList = port.getAllCars();
+//        CarImpService service = new CarImpService();
+//        ICar port = service.getCarImpPort();
+//        List<Car> statList = port.getAllCars();
 //        
 //        response.setContentType("text/html;charset=UTF-8");
 //        

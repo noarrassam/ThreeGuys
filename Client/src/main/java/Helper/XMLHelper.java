@@ -1,6 +1,6 @@
 package Helper;
 
-import interfaceapp.Cars;
+import interfaceapp.Car;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.List;
@@ -16,7 +16,7 @@ import javax.xml.bind.Marshaller;
  */
 public class XMLHelper {
 
-    public void saveFile(List<Cars> cars) throws FileNotFoundException {
+    public void saveFile(List<Car> cars) throws FileNotFoundException {
         try {
 
             CarsList list = new CarsList();

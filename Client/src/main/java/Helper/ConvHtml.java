@@ -5,8 +5,7 @@
  */
 package Helper;
 
-
-import interfaceapp.Cars;
+import interfaceapp.Car;
 import java.util.List;
 
 /**
@@ -15,14 +14,22 @@ import java.util.List;
  */
 public class ConvHtml {
 
-    public static String GetHtml(List<Cars> offers, String title) {
+    public static String GetHtml(List<Car> offers, String title) {
         String table = "<h1>" + title + "</h1>";
-        table += "<table border='1'><tr><th>ID</th><th>Model</th><th>Year</th><th>Service</th>";
+        table += "<table border='1'><tr><th>ID</th><th>Brand</th><th>Model</th>"
+                + "<th>Engine</th></th><th>Transmission</th></th><th>Year</th></th>"
+                + "<th>Price</th><th>Filename</th><th>Image</th>";
 
-        for (Cars offer : offers) {
+        for (Car offer : offers) {
             table += "<tr><td>" + offer.getId() + "</td>"
+                    + "<td>" + offer.getBrand() + "</td>"
                     + "<td>" + offer.getModel() + "</td>"
-                    + "<td>" + offer.getYear() + "</td>";
+                    + "<td>" + offer.getEngine() + "</td>"
+                    + "<td>" + offer.getTransmission() + "</td>"
+                    + "<td>" + offer.getYear() + "</td>"
+                    + "<td>" + offer.getPrice() + "</td>"
+                    + "<td>" + offer.getFilename() + "</td>"
+                    + "<td>" + offer.getImage() + "</td>";
         }
         table += "</table>";
 

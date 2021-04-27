@@ -4,12 +4,6 @@
 <xsd:import namespace="http://interfaceApp/" schemaLocation="http://localhost:8080/WebService/CarsImpService?xsd=1"/>
 </xsd:schema>
 </types>
-<message name="editCar">
-<part name="parameters" element="tns:editCar"/>
-</message>
-<message name="editCarResponse">
-<part name="parameters" element="tns:editCarResponse"/>
-</message>
 <message name="deletetCar">
 <part name="parameters" element="tns:deletetCar"/>
 </message>
@@ -22,28 +16,14 @@
 <message name="getAllCarsResponse">
 <part name="parameters" element="tns:getAllCarsResponse"/>
 </message>
-<message name="insertCar">
-<part name="parameters" element="tns:insertCar"/>
-</message>
-<message name="insertCarResponse">
-<part name="parameters" element="tns:insertCarResponse"/>
-</message>
 <portType name="ICars">
-<operation name="editCar">
-<input xmlns:ns1="http://www.w3.org/2007/05/addressing/metadata" ns1:Action="http://interfaceApp/ICars/editCarRequest" message="tns:editCar"/>
-<output xmlns:ns2="http://www.w3.org/2007/05/addressing/metadata" ns2:Action="http://interfaceApp/ICars/editCarResponse" message="tns:editCarResponse"/>
-</operation>
 <operation name="deletetCar">
-<input xmlns:ns3="http://www.w3.org/2007/05/addressing/metadata" ns3:Action="http://interfaceApp/ICars/deletetCarRequest" message="tns:deletetCar"/>
-<output xmlns:ns4="http://www.w3.org/2007/05/addressing/metadata" ns4:Action="http://interfaceApp/ICars/deletetCarResponse" message="tns:deletetCarResponse"/>
+<input xmlns:ns1="http://www.w3.org/2007/05/addressing/metadata" ns1:Action="http://interfaceApp/ICars/deletetCarRequest" message="tns:deletetCar"/>
+<output xmlns:ns2="http://www.w3.org/2007/05/addressing/metadata" ns2:Action="http://interfaceApp/ICars/deletetCarResponse" message="tns:deletetCarResponse"/>
 </operation>
 <operation name="getAllCars">
-<input xmlns:ns5="http://www.w3.org/2007/05/addressing/metadata" ns5:Action="http://interfaceApp/ICars/getAllCarsRequest" message="tns:getAllCars"/>
-<output xmlns:ns6="http://www.w3.org/2007/05/addressing/metadata" ns6:Action="http://interfaceApp/ICars/getAllCarsResponse" message="tns:getAllCarsResponse"/>
-</operation>
-<operation name="insertCar">
-<input xmlns:ns7="http://www.w3.org/2007/05/addressing/metadata" ns7:Action="http://interfaceApp/ICars/insertCarRequest" message="tns:insertCar"/>
-<output xmlns:ns8="http://www.w3.org/2007/05/addressing/metadata" ns8:Action="http://interfaceApp/ICars/insertCarResponse" message="tns:insertCarResponse"/>
+<input xmlns:ns3="http://www.w3.org/2007/05/addressing/metadata" ns3:Action="http://interfaceApp/ICars/getAllCarsRequest" message="tns:getAllCars"/>
+<output xmlns:ns4="http://www.w3.org/2007/05/addressing/metadata" ns4:Action="http://interfaceApp/ICars/getAllCarsResponse" message="tns:getAllCarsResponse"/>
 </operation>
 </portType>
 </definitions>

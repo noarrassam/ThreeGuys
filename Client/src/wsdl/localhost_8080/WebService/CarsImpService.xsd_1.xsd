@@ -6,17 +6,9 @@
 
 <xs:element name="deletetCarResponse" type="tns:deletetCarResponse"/>
 
-<xs:element name="editCar" type="tns:editCar"/>
-
-<xs:element name="editCarResponse" type="tns:editCarResponse"/>
-
 <xs:element name="getAllCars" type="tns:getAllCars"/>
 
 <xs:element name="getAllCarsResponse" type="tns:getAllCarsResponse"/>
-
-<xs:element name="insertCar" type="tns:insertCar"/>
-
-<xs:element name="insertCarResponse" type="tns:insertCarResponse"/>
 
 <xs:complexType name="deletetCar">
 <xs:sequence>
@@ -27,28 +19,6 @@
 <xs:complexType name="deletetCarResponse">
 <xs:sequence>
 <xs:element name="deleteCar" type="xs:boolean" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="insertCar">
-<xs:sequence>
-<xs:element name="arg0" type="xs:string" minOccurs="0"/>
-<xs:element name="arg1" type="xs:string" minOccurs="0"/>
-<xs:element name="arg2" type="xs:string" minOccurs="0"/>
-<xs:element name="arg3" type="xs:string" minOccurs="0"/>
-<xs:element name="arg4" type="xs:base64Binary" nillable="true" minOccurs="0"/>
-<xs:element name="arg5" type="xs:string" minOccurs="0"/>
-<xs:element name="arg6" type="xs:string" minOccurs="0"/>
-<xs:element name="arg7" type="xs:int"/>
-<xs:element name="arg8" type="xs:string" minOccurs="0"/>
-<xs:element name="arg9" type="xs:string" minOccurs="0"/>
-<xs:element name="arg10" type="xs:int"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="insertCarResponse">
-<xs:sequence>
-<xs:element name="insertCar" type="xs:boolean" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -77,28 +47,6 @@
 <xs:element name="transmission" type="xs:string" minOccurs="0"/>
 <xs:element name="type" type="xs:string" minOccurs="0"/>
 <xs:element name="year" type="xs:int" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="editCar">
-<xs:sequence>
-<xs:element name="arg0" type="xs:string" minOccurs="0"/>
-<xs:element name="arg1" type="xs:string" minOccurs="0"/>
-<xs:element name="arg2" type="xs:string" minOccurs="0"/>
-<xs:element name="arg3" type="xs:string" minOccurs="0"/>
-<xs:element name="arg4" type="xs:base64Binary" nillable="true" minOccurs="0"/>
-<xs:element name="arg5" type="xs:string" minOccurs="0"/>
-<xs:element name="arg6" type="xs:string" minOccurs="0"/>
-<xs:element name="arg7" type="xs:int"/>
-<xs:element name="arg8" type="xs:string" minOccurs="0"/>
-<xs:element name="arg9" type="xs:string" minOccurs="0"/>
-<xs:element name="arg10" type="xs:int"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="editCarResponse">
-<xs:sequence>
-<xs:element name="editCar" type="xs:boolean" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 </xs:schema>

@@ -20,5 +20,6 @@ Any value defined here will override the pom.xml file value but is only applicab
         <org-netbeans-modules-maven-jaxws._5f_C_5f_ReviewsServ>http://localhost:8080/WebService/ReviewsServ?WSDL</org-netbeans-modules-maven-jaxws._5f_C_5f_ReviewsServ>
         <org-netbeans-modules-maven-jaxws._5f_C_5f_UsersImpService>http://localhost:8080/WebService/UsersImpService?WSDL</org-netbeans-modules-maven-jaxws._5f_C_5f_UsersImpService>
         <org-netbeans-modules-maven-jaxws._5f_C_5f_CarsImpService>http://localhost:8080/WebService/CarsImpService?WSDL</org-netbeans-modules-maven-jaxws._5f_C_5f_CarsImpService>
+        <org-netbeans-modules-maven-jaxws._5f_C_5f_CarImpService>http://localhost:8080/WebService/CarImpService?WSDL</org-netbeans-modules-maven-jaxws._5f_C_5f_CarImpService>
     </properties>
 </project-shared-configuration>

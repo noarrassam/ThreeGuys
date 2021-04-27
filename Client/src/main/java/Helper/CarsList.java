@@ -5,7 +5,7 @@
  */
 package Helper;
 
-import interfaceapp.Cars;
+import interfaceapp.Car;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -16,18 +16,18 @@ import javax.xml.bind.annotation.XmlRootElement;
  *
  * @author noorr
  */
-@XmlRootElement(name = "Cars")
+@XmlRootElement(name = "Car")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class CarsList 
 {
     @XmlElement(name = "car")
-    private List<Cars> cars;
+    private List<Car> cars;
 
-    public List<Cars> getCars() {
+    public List<Car> getCars() {
         return cars;
     }
 
-    public void setCars(List<Cars> cars) {
+    public void setCars(List<Car> cars) {
         this.cars = cars;
     }     
 }

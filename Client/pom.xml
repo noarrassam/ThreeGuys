@@ -107,24 +107,6 @@
                         </goals>
                         <configuration>
                             <wsdlFiles>
-                                <wsdlFile>localhost_8080/WebService/CarsImpService.wsdl</wsdlFile>
-                            </wsdlFiles>
-                            <packageName></packageName>
-                            <vmArgs>
-                                <vmArg>-Djavax.xml.accessExternalSchema=all</vmArg>
-                            </vmArgs>
-                            <wsdlLocation>http://localhost:8080/WebService/CarsImpService?WSDL</wsdlLocation>
-                            <staleFile>${project.build.directory}/jaxws/stale/CarsImpService.stale</staleFile>
-                        </configuration>
-                        <id>wsimport-generate-CarsImpService</id>
-                        <phase>generate-sources</phase>
-                    </execution>
-                    <execution>
-                        <goals>
-                            <goal>wsimport</goal>
-                        </goals>
-                        <configuration>
-                            <wsdlFiles>
                                 <wsdlFile>localhost_8080/WebService/UsersImpService.wsdl</wsdlFile>
                             </wsdlFiles>
                             <packageName></packageName>
@@ -153,6 +135,24 @@
                             <staleFile>${project.build.directory}/jaxws/stale/ReviewsServ.stale</staleFile>
                         </configuration>
                         <id>wsimport-generate-ReviewsServ</id>
+                        <phase>generate-sources</phase>
+                    </execution>
+                    <execution>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                        <configuration>
+                            <wsdlFiles>
+                                <wsdlFile>localhost_8080/WebService/CarImpService.wsdl</wsdlFile>
+                            </wsdlFiles>
+                            <packageName></packageName>
+                            <vmArgs>
+                                <vmArg>-Djavax.xml.accessExternalSchema=all</vmArg>
+                            </vmArgs>
+                            <wsdlLocation>http://localhost:8080/WebService/CarImpService?WSDL</wsdlLocation>
+                            <staleFile>${project.build.directory}/jaxws/stale/CarImpService.stale</staleFile>
+                        </configuration>
+                        <id>wsimport-generate-CarImpService</id>
                         <phase>generate-sources</phase>
                     </execution>
                 </executions>
