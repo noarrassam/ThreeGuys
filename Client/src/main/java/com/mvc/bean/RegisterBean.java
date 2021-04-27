@@ -5,6 +5,7 @@
  */
 package com.mvc.bean;
 
+
 import interfaceapp.Users;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;

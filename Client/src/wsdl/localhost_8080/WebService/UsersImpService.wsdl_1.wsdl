@@ -4,6 +4,18 @@
 <xsd:import namespace="http://interfaceApp/" schemaLocation="http://localhost:8080/WebService/UsersImpService?xsd=1"/>
 </xsd:schema>
 </types>
+<message name="loginUser">
+<part name="parameters" element="tns:loginUser"/>
+</message>
+<message name="loginUserResponse">
+<part name="parameters" element="tns:loginUserResponse"/>
+</message>
+<message name="getAllUsers">
+<part name="parameters" element="tns:getAllUsers"/>
+</message>
+<message name="getAllUsersResponse">
+<part name="parameters" element="tns:getAllUsersResponse"/>
+</message>
 <message name="editUser">
 <part name="parameters" element="tns:editUser"/>
 </message>
@@ -16,34 +28,22 @@
 <message name="insertUserResponse">
 <part name="parameters" element="tns:insertUserResponse"/>
 </message>
-<message name="getAllUsers">
-<part name="parameters" element="tns:getAllUsers"/>
-</message>
-<message name="getAllUsersResponse">
-<part name="parameters" element="tns:getAllUsersResponse"/>
-</message>
-<message name="loginUser">
-<part name="parameters" element="tns:loginUser"/>
-</message>
-<message name="loginUserResponse">
-<part name="parameters" element="tns:loginUserResponse"/>
-</message>
 <portType name="IUser">
-<operation name="editUser">
-<input xmlns:ns1="http://www.w3.org/2007/05/addressing/metadata" ns1:Action="http://interfaceApp/IUser/editUserRequest" message="tns:editUser"/>
-<output xmlns:ns2="http://www.w3.org/2007/05/addressing/metadata" ns2:Action="http://interfaceApp/IUser/editUserResponse" message="tns:editUserResponse"/>
-</operation>
-<operation name="insertUser">
-<input xmlns:ns3="http://www.w3.org/2007/05/addressing/metadata" ns3:Action="http://interfaceApp/IUser/insertUserRequest" message="tns:insertUser"/>
-<output xmlns:ns4="http://www.w3.org/2007/05/addressing/metadata" ns4:Action="http://interfaceApp/IUser/insertUserResponse" message="tns:insertUserResponse"/>
+<operation name="loginUser">
+<input xmlns:ns1="http://www.w3.org/2007/05/addressing/metadata" ns1:Action="http://interfaceApp/IUser/loginUserRequest" message="tns:loginUser"/>
+<output xmlns:ns2="http://www.w3.org/2007/05/addressing/metadata" ns2:Action="http://interfaceApp/IUser/loginUserResponse" message="tns:loginUserResponse"/>
 </operation>
 <operation name="getAllUsers">
-<input xmlns:ns5="http://www.w3.org/2007/05/addressing/metadata" ns5:Action="http://interfaceApp/IUser/getAllUsersRequest" message="tns:getAllUsers"/>
-<output xmlns:ns6="http://www.w3.org/2007/05/addressing/metadata" ns6:Action="http://interfaceApp/IUser/getAllUsersResponse" message="tns:getAllUsersResponse"/>
+<input xmlns:ns3="http://www.w3.org/2007/05/addressing/metadata" ns3:Action="http://interfaceApp/IUser/getAllUsersRequest" message="tns:getAllUsers"/>
+<output xmlns:ns4="http://www.w3.org/2007/05/addressing/metadata" ns4:Action="http://interfaceApp/IUser/getAllUsersResponse" message="tns:getAllUsersResponse"/>
 </operation>
-<operation name="loginUser">
-<input xmlns:ns7="http://www.w3.org/2007/05/addressing/metadata" ns7:Action="http://interfaceApp/IUser/loginUserRequest" message="tns:loginUser"/>
-<output xmlns:ns8="http://www.w3.org/2007/05/addressing/metadata" ns8:Action="http://interfaceApp/IUser/loginUserResponse" message="tns:loginUserResponse"/>
+<operation name="editUser">
+<input xmlns:ns5="http://www.w3.org/2007/05/addressing/metadata" ns5:Action="http://interfaceApp/IUser/editUserRequest" message="tns:editUser"/>
+<output xmlns:ns6="http://www.w3.org/2007/05/addressing/metadata" ns6:Action="http://interfaceApp/IUser/editUserResponse" message="tns:editUserResponse"/>
+</operation>
+<operation name="insertUser">
+<input xmlns:ns7="http://www.w3.org/2007/05/addressing/metadata" ns7:Action="http://interfaceApp/IUser/insertUserRequest" message="tns:insertUser"/>
+<output xmlns:ns8="http://www.w3.org/2007/05/addressing/metadata" ns8:Action="http://interfaceApp/IUser/insertUserResponse" message="tns:insertUserResponse"/>
 </operation>
 </portType>
 </definitions>
