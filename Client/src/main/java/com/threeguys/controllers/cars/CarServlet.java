@@ -6,6 +6,7 @@
 package com.threeguys.controllers.cars;
 
 import Helper.ConvHtml;
+import Helper.XMLHelper;
 import interfaceapp.Cars;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -76,13 +77,13 @@ public class CarServlet extends HttpServlet {
         
         try {
             PrintWriter out = response.getWriter();
-            out.println(ConvHtml.GetHtml(carsList, "Offer List"));
+            out.println(ConvHtml.GetHtml(carsList, "Cars List"));
             
             out.println("<br/>");
             out.println("<a href='javascript:history.back()'>Go Back</a>");
             
-            //XMLHelper helper = new XMLHelper();
-            //helper.saveFile(offerList);
+            XMLHelper helper = new XMLHelper();
+            helper.saveFile(carsList);
             
         } catch (Exception e){
             e.printStackTrace();
@@ -100,7 +101,26 @@ public class CarServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+//        CarsImpService service = new CarsImpService();
+//        ICars port = service.getCarsImpPort();
+//        List<Cars> statList = port.getAllCars();
+//        
+//        response.setContentType("text/html;charset=UTF-8");
+//        
+//        try {
+//            PrintWriter out = response.getWriter();
+//            out.println(ConvHtml.GetStatHtml(statList, "Statistics"));
+//            
+//            out.println("<br/>");
+//            
+//            out.println("<a href='javascript:history.back()'>Go Back</a>");
+//            
+//            XMLHelper helper = new XMLHelper();
+//            helper.saveStatFile(statList);
+//            
+//        } catch (Exception e){
+//            e.printStackTrace();
+//        }
     }
 
     /**

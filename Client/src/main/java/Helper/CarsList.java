@@ -16,7 +16,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  *
  * @author noorr
  */
-@XmlRootElement(name = "carlist")
+@XmlRootElement(name = "Cars")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class CarsList 
 {

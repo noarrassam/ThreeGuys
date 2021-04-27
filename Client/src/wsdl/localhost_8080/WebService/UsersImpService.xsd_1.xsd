@@ -1,44 +1,56 @@
 <?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.4.3 (RELEASE-2.4.3-ad3323c; 2019-01-21T17:46:06+0000) JAXWS-RI/2.3.2 JAXWS-API/2.3.2 JAXB-RI/2.3.2 JAXB-API/2.3.2 git-revision#unknown. --><xs:schema xmlns:tns="http://interfaceApp/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://interfaceApp/">
 
-<xs:element name="EdittUser" type="tns:EdittUser"/>
+<xs:element name="edittUser" type="tns:edittUser"/>
 
-<xs:element name="EdittUserResponse" type="tns:EdittUserResponse"/>
+<xs:element name="edittUserResponse" type="tns:edittUserResponse"/>
 
-<xs:element name="GetAllUsers" type="tns:GetAllUsers"/>
+<xs:element name="getAllUsers" type="tns:getAllUsers"/>
 
-<xs:element name="GetAllUsersResponse" type="tns:GetAllUsersResponse"/>
+<xs:element name="getAllUsersResponse" type="tns:getAllUsersResponse"/>
 
-<xs:element name="InsertUser" type="tns:InsertUser"/>
+<xs:element name="insertUser" type="tns:insertUser"/>
 
-<xs:element name="InsertUserResponse" type="tns:InsertUserResponse"/>
+<xs:element name="insertUserResponse" type="tns:insertUserResponse"/>
 
-<xs:element name="LoginUser" type="tns:LoginUser"/>
+<xs:element name="loginUser" type="tns:loginUser"/>
 
-<xs:element name="LoginUserResponse" type="tns:LoginUserResponse"/>
+<xs:element name="loginUserResponse" type="tns:loginUserResponse"/>
 
 <xs:element name="users" type="tns:users"/>
 
-<xs:complexType name="EdittUser">
+<xs:complexType name="loginUser">
 <xs:sequence>
-<xs:element name="arg0" type="xs:int"/>
+<xs:element name="arg0" type="xs:string" minOccurs="0"/>
+<xs:element name="arg1" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="loginUserResponse">
+<xs:sequence>
+<xs:element name="loginAuth" type="xs:boolean" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="insertUser">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"/>
 <xs:element name="arg1" type="xs:string" minOccurs="0"/>
 <xs:element name="arg2" type="xs:string" minOccurs="0"/>
 <xs:element name="arg3" type="xs:string" minOccurs="0"/>
-<xs:element name="arg4" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="EdittUserResponse">
+<xs:complexType name="insertUserResponse">
 <xs:sequence>
-<xs:element name="editAuth" type="xs:boolean" minOccurs="0"/>
+<xs:element name="insertAuth" type="xs:boolean" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="GetAllUsers">
+<xs:complexType name="getAllUsers">
 <xs:sequence/>
 </xs:complexType>
 
-<xs:complexType name="GetAllUsersResponse">
+<xs:complexType name="getAllUsersResponse">
 <xs:sequence>
 <xs:element name="allAuth" type="tns:users" minOccurs="0" maxOccurs="unbounded"/>
 </xs:sequence>
@@ -55,31 +67,19 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="InsertUser">
+<xs:complexType name="edittUser">
 <xs:sequence>
-<xs:element name="arg0" type="xs:string" minOccurs="0"/>
+<xs:element name="arg0" type="xs:int"/>
 <xs:element name="arg1" type="xs:string" minOccurs="0"/>
 <xs:element name="arg2" type="xs:string" minOccurs="0"/>
 <xs:element name="arg3" type="xs:string" minOccurs="0"/>
+<xs:element name="arg4" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="InsertUserResponse">
+<xs:complexType name="edittUserResponse">
 <xs:sequence>
-<xs:element name="insertAuth" type="xs:boolean" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="LoginUser">
-<xs:sequence>
-<xs:element name="arg0" type="xs:string" minOccurs="0"/>
-<xs:element name="arg1" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="LoginUserResponse">
-<xs:sequence>
-<xs:element name="loginAuth" type="xs:boolean" minOccurs="0"/>
+<xs:element name="editAuth" type="xs:boolean" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 </xs:schema>

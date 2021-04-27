@@ -5,7 +5,6 @@
  */
 package com.threeguys.controllers.users;
 
-import com.mvc.bean.RegisterBean;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -86,5 +85,4 @@ public class RegisterServlet extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
 }
