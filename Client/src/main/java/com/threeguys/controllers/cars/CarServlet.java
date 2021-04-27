@@ -10,6 +10,7 @@ import Helper.XMLHelper;
 import interfaceapp.Car;
 import java.io.IOException;
 import java.io.PrintWriter;
+import static java.lang.Integer.parseInt;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -65,25 +66,27 @@ public class CarServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
        //get parameter from request
+        //String search = request.getParameter("id");
         String description = request.getParameter("search");
         
         //web service client, call method to search offers
         CarImpService service = new CarImpService();
         
         ICar port = service.getCarImpPort();
-        List<Car> carList = port.getAllCars();
+        List<Car> carList = port.getCar(description);
         
         response.setContentType("text/html;charset=UTF-8");
         
         try {
             PrintWriter out = response.getWriter();
-            out.println(ConvHtml.GetHtml(carList, "Cars List"));
+            out.println(ConvHtml.GetHtml((List<Car>) carList, "Cars List"));
             
             out.println("<br/>");
             out.println("<a href='javascript:history.back()'>Go Back</a>");
             
             XMLHelper helper = new XMLHelper();
-            helper.saveFile(carList);
+            helper.saveFile((List<Car>) carList);
+            System.out.println("saved:ocation" + carList);
             
         } catch (Exception e){
             e.printStackTrace();

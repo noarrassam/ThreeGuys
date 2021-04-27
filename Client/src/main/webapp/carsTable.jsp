@@ -4,12 +4,15 @@
     Author     : noorr
 --%>
 
+<%@page import="interfaceapp.Users"%>
+<%@page import="services.IUser"%>
+<%@page import="services.UsersImpService"%>
 <%@page import="Helper.ConvHtml"%>
-<%@page import="interfaceapp.Cars"%>
-<%@page import="services.ICars"%>
+<%@page import="interfaceapp.Car"%>
+<%@page import="services.ICar"%>
 <%@page import="java.util.List"%>
-<%@page import="services.CarsImpService"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@page import="services.CarImpService"%>
+<%@page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -21,9 +24,9 @@
         <h1 style="color:blue;">Welcome to Cars Service</h1>
 
         <%
-            CarsImpService service = new CarsImpService();
-            ICars port = service.getCarsImpPort();
-            List<Cars> carList = port.getAllCars();
+            CarImpService service = new CarImpService();
+            ICar port = service.getCarImpPort();
+            List<Car> carList = port.getAllCars();
 
             try {
                 out.println(ConvHtml.GetHtml(carList, "Car List"));

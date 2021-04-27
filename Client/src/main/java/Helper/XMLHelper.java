@@ -28,16 +28,10 @@ public class XMLHelper {
             jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 
             //Print XML String to Console
-            File file = new File("C:\\Users\\noorr\\Documents\\NetBeansProjects\\CarsWebServiceClient\\src\\test\\" + String.valueOf(System.currentTimeMillis()) +
+            File file = new File("\\" + String.valueOf(System.currentTimeMillis()) +
                     ".xml");
-            
-            System.out.println(file.getAbsoluteFile());
-            
-            
-            
+            System.out.println("path is " +file.getAbsoluteFile());
             jaxbMarshaller.marshal(list, file);
-            
-            
         } catch (JAXBException e) {
             e.printStackTrace();
         }
