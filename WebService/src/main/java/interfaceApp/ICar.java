@@ -21,6 +21,10 @@ public interface ICar {
     @WebMethod
     @WebResult(name="allCars")
     public List<Car> getAllCars();
+    
+    @WebMethod
+    @WebResult(name="allCarsByBrand")
+    public List<Car> getCar(String brand);
   
     @WebMethod
     @WebResult(name="insertCar")
@@ -29,7 +33,7 @@ public interface ICar {
     
     @WebMethod
     @WebResult(name="editCar")
-    public Boolean editCar(String brand, String model, String engine, String transmission, 
+    public Boolean editCar(int id, String brand, String model, String engine, String transmission, 
             int year, int price, String filename, byte[] image);
     
     @WebMethod

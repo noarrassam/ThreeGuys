@@ -25,6 +25,12 @@ public class CarImp {
         return car.getAllCars();
     }
     
+    public List<Car> getCar(String brand) {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("my_persistence_unit");
+        CarJpaController car = new CarJpaController(emf);
+        return car.findCarByName(brand);
+    }
+    
     public Boolean insertCar(String brand, String model, String engine, String transmission, 
             int year, int price, String filename, byte[] image) throws Exception {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("my_persistence_unit");
@@ -45,12 +51,13 @@ public class CarImp {
         return true;
     }
     
-    public Boolean editCar(String brand, String model, String engine, String transmission, 
+    public Boolean editCar(int id, String brand, String model, String engine, String transmission, 
             int year, int price, String filename, byte[] image) throws Exception {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("my_persistence_unit");
         CarJpaController carRepo = new CarJpaController(emf);
         
         Car car = new Car();
+        car.setId(id);
         car.setBrand(brand);
         car.setModel(model);
         car.setEngine(engine);
@@ -72,7 +79,7 @@ public class CarImp {
         Car car = new Car();
         car.setId(id);
         
-        carRepo.destroy(id);
+        carRepo.destroy(car.getId());
         
         return true;
     }

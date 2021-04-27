@@ -148,5 +148,16 @@ public class CarJpaController implements Serializable {
      Query query = em.createNamedQuery("Car.findAll");
      return query.getResultList();
     } 
-    
+     
+    public List<Car> findCarByName(String brand){
+        EntityManager em = getEntityManager();
+        try {
+            return 
+                 em.createQuery("SELECT c FROM Car c Where c.brand LIKE :brndName ")
+                    .setParameter("brndName", brand)
+                    .getResultList();
+        } finally {
+            em.close();
+        }
+    }  
 }

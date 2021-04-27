@@ -33,7 +33,6 @@ public class UsersImp {
     public Boolean loginUser(String username, String password) {
 
         try {
-            Users use = new Users();
 
             EntityManagerFactory emf = Persistence.createEntityManagerFactory("my_persistence_unit");
             EntityManager em = emf.createEntityManager();
@@ -62,15 +61,20 @@ public class UsersImp {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("my_persistence_unit");
         UsersJpaController userRepo = new UsersJpaController(emf);
 
-        Users user = new Users();
-        user.setFname(fname);
-        user.setLname(lname);
-        user.setPassword(pass);
-        user.setUsername(username);
-
-        userRepo.create(user);
-
-        return true;
+        try {
+            Users user = new Users();
+            user.setFname(fname);
+            user.setLname(lname);
+            user.setPassword(pass);
+            user.setUsername(username);
+            userRepo.create(user);
+            if (user != null) {
+                return true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
     public Boolean editUser(int id, String fname, String lname, String pass, String username) throws Exception {

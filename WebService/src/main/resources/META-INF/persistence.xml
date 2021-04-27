@@ -3,7 +3,6 @@
   <!-- Define Persistence Unit -->
   <persistence-unit name="my_persistence_unit" transaction-type="RESOURCE_LOCAL">
     <non-jta-data-source>jdbc/EAM3G</non-jta-data-source>
-    <class>com.threeguys.entites.Cars</class>
     <class>com.threeguys.entites.Reviews</class>
     <class>com.threeguys.entites.Users</class>
     <class>com.threeguys.entites.Car</class>
