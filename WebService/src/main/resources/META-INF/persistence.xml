@@ -6,6 +6,7 @@
     <class>com.threeguys.entites.Cars</class>
     <class>com.threeguys.entites.Reviews</class>
     <class>com.threeguys.entites.Users</class>
+    <class>com.threeguys.entites.Car</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://database-2.citpn6baixlv.us-east-2.rds.amazonaws.com:3306/ThreeGuys?zeroDateTimeBehavior=CONVERT_TO_NULL"/>

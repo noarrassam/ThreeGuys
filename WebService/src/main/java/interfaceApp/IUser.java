@@ -20,17 +20,17 @@ public interface IUser {
 
     @WebMethod
     @WebResult(name = "allAuth")
-    public List<Users> GetAllUsers();
+    public List<Users> getAllUsers();
 
     @WebMethod
     @WebResult(name = "insertAuth")
-    public Boolean InsertUser(String fname, String lname, String pass, String username);
+    public Boolean insertUser(String fname, String lname, String pass, String username);
 
     @WebMethod
     @WebResult(name = "editAuth")
-    public Boolean EdittUser(int id, String fname, String lname, String pass, String username);
+    public Boolean editUser(int id, String fname, String lname, String pass, String username);
     
     @WebMethod
     @WebResult(name = "loginAuth")
-    public Boolean LoginUser(String username, String pass);
+    public Boolean loginUser(String username, String pass);
 }

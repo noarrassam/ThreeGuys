@@ -16,7 +16,6 @@ import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -25,13 +24,13 @@ import javax.swing.JOptionPane;
 @WebService(endpointInterface = "interfaceApp.IUser")
 public class UsersImp {
 
-    public List<Users> GetAllUsers() {
+    public List<Users> getAllUsers() {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("my_persistence_unit");
         UsersJpaController user = new UsersJpaController(emf);
         return user.getAllUsers();
     }
 
-    public Boolean LoginUser(String username, String password) {
+    public Boolean loginUser(String username, String password) {
 
         try {
             Users use = new Users();
@@ -59,7 +58,7 @@ public class UsersImp {
         return false;
     }
 
-    public Boolean InsertUser(String fname, String lname, String pass, String username) throws Exception {
+    public Boolean insertUser(String fname, String lname, String pass, String username) throws Exception {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("my_persistence_unit");
         UsersJpaController userRepo = new UsersJpaController(emf);
 
@@ -74,7 +73,7 @@ public class UsersImp {
         return true;
     }
 
-    public Boolean EdittUser(int id, String fname, String lname, String pass, String username) throws Exception {
+    public Boolean editUser(int id, String fname, String lname, String pass, String username) throws Exception {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("my_persistence_unit");
         UsersJpaController userRepo = new UsersJpaController(emf);
 

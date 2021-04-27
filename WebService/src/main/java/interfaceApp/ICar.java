@@ -5,7 +5,7 @@
  */
 package interfaceApp;
 
-import com.threeguys.entites.Cars;
+import com.threeguys.entites.Car;
 import java.util.List;
 import javax.jws.WebMethod;
 import javax.jws.WebResult;
@@ -16,21 +16,23 @@ import javax.jws.WebService;
  * @author noorr
  */
 @WebService
-public interface ICars {
+public interface ICar {
     
     @WebMethod
     @WebResult(name="allCars")
-    public List<Cars> GetAllCars(); 
-    
+    public List<Car> getAllCars();
+  
     @WebMethod
     @WebResult(name="insertCar")
-    public Boolean InsertCar(String brand, String dis, String engine, String filename, byte[] image, String prm, String model, int price, String transmission, String type, int year);
+    public Boolean insertCar(String brand, String model, String engine, String transmission, 
+            int year, int price, String filename, byte[] image);
     
     @WebMethod
     @WebResult(name="editCar")
-    public Boolean EditCar(String brand, String dis, String engine, String filename, byte[] image, String prm, String model, int price, String transmission, String type, int year);
+    public Boolean editCar(String brand, String model, String engine, String transmission, 
+            int year, int price, String filename, byte[] image);
     
     @WebMethod
     @WebResult(name="deleteCar")
-    public Boolean DeletetCar(int id);
+    public Boolean deletetCar(int id);
 }

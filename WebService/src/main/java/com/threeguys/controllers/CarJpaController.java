@@ -7,7 +7,8 @@ package com.threeguys.controllers;
 
 import com.mycompany.threeguyswebservice.resources.exceptions.NonexistentEntityException;
 import com.mycompany.threeguyswebservice.resources.exceptions.PreexistingEntityException;
-import com.threeguys.entites.Cars;
+import com.threeguys.entites.Car;
+import com.threeguys.entites.Users;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -21,9 +22,9 @@ import javax.persistence.criteria.Root;
  *
  * @author noorr
  */
-public class CarsJpaController implements Serializable {
+public class CarJpaController implements Serializable {
 
-    public CarsJpaController(EntityManagerFactory emf) {
+    public CarJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
     private EntityManagerFactory emf = null;
@@ -32,16 +33,16 @@ public class CarsJpaController implements Serializable {
         return emf.createEntityManager();
     }
 
-    public void create(Cars cars) throws PreexistingEntityException, Exception {
+    public void create(Car car) throws PreexistingEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            em.persist(cars);
+            em.persist(car);
             em.getTransaction().commit();
         } catch (Exception ex) {
-            if (findCars(cars.getId()) != null) {
-                throw new PreexistingEntityException("Cars " + cars + " already exists.", ex);
+            if (findCar(car.getId()) != null) {
+                throw new PreexistingEntityException("Car " + car + " already exists.", ex);
             }
             throw ex;
         } finally {
@@ -51,19 +52,19 @@ public class CarsJpaController implements Serializable {
         }
     }
 
-    public void edit(Cars cars) throws NonexistentEntityException, Exception {
+    public void edit(Car car) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            cars = em.merge(cars);
+            car = em.merge(car);
             em.getTransaction().commit();
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                Integer id = cars.getId();
-                if (findCars(id) == null) {
-                    throw new NonexistentEntityException("The cars with id " + id + " no longer exists.");
+                Integer id = car.getId();
+                if (findCar(id) == null) {
+                    throw new NonexistentEntityException("The car with id " + id + " no longer exists.");
                 }
             }
             throw ex;
@@ -79,14 +80,14 @@ public class CarsJpaController implements Serializable {
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Cars cars;
+            Car car;
             try {
-                cars = em.getReference(Cars.class, id);
-                cars.getId();
+                car = em.getReference(Car.class, id);
+                car.getId();
             } catch (EntityNotFoundException enfe) {
-                throw new NonexistentEntityException("The cars with id " + id + " no longer exists.", enfe);
+                throw new NonexistentEntityException("The car with id " + id + " no longer exists.", enfe);
             }
-            em.remove(cars);
+            em.remove(car);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -95,19 +96,19 @@ public class CarsJpaController implements Serializable {
         }
     }
 
-    public List<Cars> findCarsEntities() {
-        return findCarsEntities(true, -1, -1);
+    public List<Car> findCarEntities() {
+        return findCarEntities(true, -1, -1);
     }
 
-    public List<Cars> findCarsEntities(int maxResults, int firstResult) {
-        return findCarsEntities(false, maxResults, firstResult);
+    public List<Car> findCarEntities(int maxResults, int firstResult) {
+        return findCarEntities(false, maxResults, firstResult);
     }
 
-    private List<Cars> findCarsEntities(boolean all, int maxResults, int firstResult) {
+    private List<Car> findCarEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-            cq.select(cq.from(Cars.class));
+            cq.select(cq.from(Car.class));
             Query q = em.createQuery(cq);
             if (!all) {
                 q.setMaxResults(maxResults);
@@ -119,20 +120,20 @@ public class CarsJpaController implements Serializable {
         }
     }
 
-    public Cars findCars(Integer id) {
+    public Car findCar(Integer id) {
         EntityManager em = getEntityManager();
         try {
-            return em.find(Cars.class, id);
+            return em.find(Car.class, id);
         } finally {
             em.close();
         }
     }
 
-    public int getCarsCount() {
+    public int getCarCount() {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-            Root<Cars> rt = cq.from(Cars.class);
+            Root<Car> rt = cq.from(Car.class);
             cq.select(em.getCriteriaBuilder().count(rt));
             Query q = em.createQuery(cq);
             return ((Long) q.getSingleResult()).intValue();
@@ -141,10 +142,11 @@ public class CarsJpaController implements Serializable {
         }
     }
     
-    public List<Cars> getAllCars(){
-    EntityManager em = getEntityManager();
+     public List<Car> getAllCars(){
+     EntityManager em = getEntityManager();
         
-    Query query = em.createNamedQuery("Cars.findAll");
-    return query.getResultList();
-   }
+     Query query = em.createNamedQuery("Car.findAll");
+     return query.getResultList();
+    } 
+    
 }
