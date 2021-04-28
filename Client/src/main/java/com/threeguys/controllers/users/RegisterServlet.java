@@ -25,29 +25,7 @@ public class RegisterServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-//        //get parameter from request
-//        String description = request.getParameter("search");
-//        
-//        //web service client, call method to search offers
-//        CarsServicesService service = new CarsServicesService();
-//        ICarServ port = service.getCarsServicesPort();
-//        List<Offers> offerList = port.searchCarServices(description);
-//        
-//        response.setContentType("text/html;charset=UTF-8");
-//        
-//        try {
-//            PrintWriter out = response.getWriter();
-//            out.println(ConvHtml.GetHtml(offerList, "Offer List"));
-//            
-//            out.println("<br/>");
-//            out.println("<a href='javascript:history.back()'>Go Back</a>");
-//            
-//            XMLHelper helper = new XMLHelper();
-//            helper.saveFile(offerList);
-//            
-//        } catch (Exception e){
-//            e.printStackTrace();
-//        }
+
     }
     
     @Override
@@ -58,7 +36,6 @@ public class RegisterServlet extends HttpServlet {
         String lname = request.getParameter("lname");
         String userName = request.getParameter("username");
         String password = request.getParameter("password");
-        //String confirmPass = request.getParameter("password");
         
         UsersImpService service = new UsersImpService();
         IUser port = service.getUsersImpPort();
@@ -68,7 +45,7 @@ public class RegisterServlet extends HttpServlet {
 
         if (offerList) //On success, you can display a message to user on Home page
         {
-            request.getRequestDispatcher("/index.jsp").forward(request, response);
+            request.getRequestDispatcher("/login.jsp").forward(request, response);
         } else //On Failure, display a meaningful message to the User.
         {
             request.setAttribute("errMessage", offerList);
