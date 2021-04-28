@@ -28,8 +28,8 @@ import services.ICar;
  * @author noorr
  */
 @MultipartConfig
-@WebServlet(name = "CRUDCarForm", urlPatterns = {"/CRUDCarForm"})
-public class CRUDCarForm extends HttpServlet {
+@WebServlet(name = "CarSearchServlet", urlPatterns = {"/CarSearchServlet"})
+public class CarSearchServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -126,37 +126,31 @@ public class CRUDCarForm extends HttpServlet {
             }
             break;
 
-            case "Edit":      
-            try {
-                
-                int id = parseInt(request.getParameter("id"));        
-                filesize = port.editCar(id, brand, model, engine, transmission, year, price, name, data);
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-            break;
-
-            case "Delete":
-            try {
-                int id = parseInt(request.getParameter("id"));
-                filesize = port.deletetCar(id);
-            } catch (Exception ex) {
-                ex.printStackTrace(); 
-            }
-            break;
-
-//                case "Search":
-//                    //List<Person> persons = hiber.searchUser(request.getParameter("name"));
-//                    //request.setAttribute("list", persons);
-//                    request.getRequestDispatcher("home.jsp").forward(request, response);
-//                    return;
+//            case "Edit":      
+//            try {
+//                
+//                int id = parseInt(request.getParameter("id"));        
+//                filesize = port.editCar(id, brand, model, engine, transmission, year, price, name, data);
+//            } catch (Exception ex) {
+//                ex.printStackTrace();
+//            }
+//            break;
+//
+//            case "Delete":
+//            try {
+//                int id = parseInt(request.getParameter("id"));
+//                filesize = port.deletetCar(id);
+//            } catch (Exception ex) {
+//                ex.printStackTrace(); 
+//            }
+//            break;
             default:
                 System.out.println("Error");
                 break;
         }
         List<Car> listCars = port.getAllCars();
         request.setAttribute("list", listCars);
-        request.getRequestDispatcher("carsTable.jsp").forward(request, response);
+        request.getRequestDispatcher("table.jsp").forward(request, response);
     }
 
     /**

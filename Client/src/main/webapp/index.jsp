@@ -4,18 +4,21 @@
     Author     : noorr
 --%>
 
+<%@page import="interfaceapp.Car"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+<%@page import="Helper.ConvHtml"%>
 
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>JSP Page ${param.id}</title>
     </head>
         <body>
         <br />
         <h2>Cars Web Service</h2>
-        <form action="CRUDCarForm" method="POST" enctype="multipart/form-data">
+        <form action="CarSearchServlet" method="POST" enctype="multipart/form-data">
             <table>
                 <tr>
                     <td><input type="hidden" name="id" value="${list.id}"/></td>
@@ -51,8 +54,8 @@
                 <tr>
                     <td colspan="2">
                         <input type="Submit" name="operation" value="Add" />
-                        <input type="Submit" name="operation" value="Edit" />
-                        <input type="Submit" name="operation" value="Delete" />
+<!--                        <input type="Submit" name="operation" value="Edit" />
+                        <input type="Submit" name="operation" value="Delete" />-->
                     </td>
                 </tr>                
             </table>

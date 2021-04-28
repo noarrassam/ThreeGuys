@@ -65,8 +65,7 @@ public class CarServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       //get parameter from request
-        //String search = request.getParameter("id");
+
         String description = request.getParameter("search");
         
         //web service client, call method to search offers
@@ -74,6 +73,9 @@ public class CarServlet extends HttpServlet {
         
         ICar port = service.getCarImpPort();
         List<Car> carList = port.getCar(description);
+        
+        
+        
         
         response.setContentType("text/html;charset=UTF-8");
         
