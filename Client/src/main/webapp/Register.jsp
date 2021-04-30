@@ -46,7 +46,7 @@
         <center><h1>Welcome to Cars Ratings and Reviews </h1></center>
         <center><h2>Please Register </h2></center>
         
-        <form name="form" action="RegisterServlet" method="post" onsubmit="return validate()">
+        <form name="form" action="RegisterServlet" method="post" class="w3-container w3-center w3-animate-top" onsubmit="return validate()">
             <table align="center">
                 <tr>
                     <td>First Name</td>

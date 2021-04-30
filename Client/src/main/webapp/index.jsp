@@ -13,7 +13,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page ${param.id}</title>
+        <title>Welcome, ${param.id}</title>
           <link rel="stylesheet" href="style.css">
     </head>
         <body>
