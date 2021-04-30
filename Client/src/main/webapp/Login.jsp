@@ -12,6 +12,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
         <title>Login</title>
         <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        
         <script>
             function validate()
             {
@@ -35,7 +37,7 @@
         <div style="text-align:center"><h1>Welcome to Cars Ratings and Reviews </h1> </div>
         <div style="text-align:center"><h2>Please Login</h2> </div>
         <br>
-        <form name="form" action="LoginServlet" method="post" onsubmit="return validate()">
+        <form name="form" action="LoginServlet" method="post" class="w3-container w3-center w3-animate-top" onsubmit="return validate()">
             <!-- Do not use table to format fields. As a good practice use CSS -->
             <table align="center">
                 <tr>
