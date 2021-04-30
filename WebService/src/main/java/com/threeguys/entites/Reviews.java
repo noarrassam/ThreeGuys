@@ -48,7 +48,7 @@ public class Reviews implements Serializable {
     @Size(max = 45)
     @Column(name = "title")
     private String title;
-    @Size(max = 45)
+    @Size(max = 1500)
     @Column(name = "description")
     private String description;
     @Column(name = "rating")

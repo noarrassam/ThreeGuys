@@ -27,7 +27,7 @@ public class ConvHtml {
 
     public static String GetHtml(List<Car> offers, String title) {
         String table = "<h1>" + title + "</h1>";
-        table += "<table border='1'><tr><th>ID</th><th>Brand</th><th>Model</th>"
+        table += "<table  class=\"rmdT\"  border='1'><tr><th>ID</th><th>Brand</th><th>Model</th>"
                 + "<th>Engine</th></th><th>Transmission</th></th><th>Year</th></th>"
                 + "<th>Price</th><th>Image</th>";
 

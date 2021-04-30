@@ -11,6 +11,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
         <title>Login</title>
+        <link rel="stylesheet" href="style.css">
         <script>
             function validate()
             {
@@ -30,6 +31,7 @@
         </script> 
     </head>
     <body>
+        <%@ include file="/_shared/userbar.jsp"%>
         <div style="text-align:center"><h1>Welcome to Cars Ratings and Reviews </h1> </div>
         <div style="text-align:center"><h2>Please Login</h2> </div>
         <br>

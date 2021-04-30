@@ -30,7 +30,7 @@ public class UsersImp {
         return user.getAllUsers();
     }
 
-    public Boolean loginUser(String username, String password) {
+    public int loginUser(String username, String password) {
 
         try {
 
@@ -48,13 +48,14 @@ public class UsersImp {
             Users login = q.getSingleResult();
 
             if (login != null && login.getUsername() != null) {
-                return true;
+                System.out.println("services.UsersImp.loginUser(): "+ login.getId());
+                return login.getId();
             }
 
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return false;
+        return 0;
     }
 
     public Boolean insertUser(String fname, String lname, String pass, String username) throws Exception {

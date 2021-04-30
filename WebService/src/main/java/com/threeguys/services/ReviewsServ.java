@@ -143,7 +143,14 @@ public class ReviewsServ {
         //Setting Review Details
              review.setCarID(carID);
              review.setUserID(userID);
-             review.setReviewID(reviewController.getReviewsCount()+1);
+             int id = reviewController.getReviewsCount()+1;
+             boolean yettofind = true;
+             while (yettofind) {
+                 Reviews test = reviewController.findReviews(++id);
+                 if (test == null) yettofind = false;
+             }
+            
+             review.setReviewID(id);
              review.setTitle(title);
              review.setDescription(description);
              review.setRating(rating);

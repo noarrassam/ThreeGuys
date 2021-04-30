@@ -27,7 +27,7 @@
 
 <xs:complexType name="loginUserResponse">
 <xs:sequence>
-<xs:element name="loginAuth" type="xs:boolean" minOccurs="0"/>
+<xs:element name="loginAuth" type="xs:int"/>
 </xs:sequence>
 </xs:complexType>
 

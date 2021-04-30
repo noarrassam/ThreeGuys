@@ -5,6 +5,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
         <title>Register</title>
+        <link rel="stylesheet" href="style.css">
         <script>
             function validate()
             {
@@ -39,6 +40,7 @@
         </script> 
     </head>
     <body>
+        <%@ include file="/_shared/userbar.jsp"%>
         <center><h1>Welcome to Cars Ratings and Reviews </h1></center>
         <center><h2>Please Register </h2></center>
         

@@ -21,8 +21,15 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>List of Service</title>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
+        <%@ include file="/_shared/userbar.jsp"%>
+        <c:if test="${empty sessionScope.uid}">
+            <p style="color:red;">Unauthorized</p>
+        </c:if>
+        <c:if test="${not empty sessionScope.uid}">
+        
         <h1 style="color:blue;">Welcome to Cars Service</h1>
 
         <%
@@ -48,6 +55,6 @@
         <form action="CarServlet" method="post">
             <input type="submit" value="View Car services statistics" />
         </form>-->
-
+    </c:if>
     </body>
 </html>

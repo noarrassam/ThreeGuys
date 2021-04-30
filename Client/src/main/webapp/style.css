@@ -13,6 +13,8 @@
   
 }
 
+
+
 /* Controller Message */
 div.CtlMsg {
 	float: right;
@@ -68,7 +70,7 @@ div.fail {
     display:none;
 }
 
-div.scanTable .btnSave {
+.btnSave {
     float:right;
     display:block;
 }
@@ -311,14 +313,17 @@ form#searchBox input {
 			background: linear-gradient(90deg, rgba(122,127,133,1) 0%, rgba(228,232,237,1) 49%, rgba(122,127,133,1) 100%, rgba(88,95,102,0.975249474789916) 100%);
 			font-family: 'Varela Round', sans-serif;
 			font-size: 13px;
-			
+			padding-bottom:6em;
 		}
 		
 		
 		.rmdB footer {
-		position:fixed;
-		bottom:0;
-		width:100%;
+                    position:fixed;
+                    bottom:0;
+                    width:100%;
+                    padding:2em;
+                    text-align: center;
+                    left:0;
 		}
 		
 		.rmdT tbody th {
@@ -478,6 +483,10 @@ form#searchBox input {
                    padding: 1em;
                 }
                 
+                div.review.selected {
+                    background-color: #9bd68c;
+                }
+                
                 div.review:hover {
                    background-color: #eee;
                 }
@@ -539,6 +548,10 @@ main section.elements p.comments {
   height: auto;
 }
 
+form.rmdT h2, form.rmdT .btnSave {
+ text-transform: capitalize;
+}
+
 
 .navNavBar{
 	height: 100%; /* 100% Full-height */
@@ -554,6 +567,7 @@ main section.elements p.comments {
 }
 .sidebar{
   position: fixed;
+  top:0;
   width: 240px;
   left: -240px;
   height: 100%;
@@ -636,9 +650,11 @@ label #btn,label #cancel{
   position: fixed;
   cursor: pointer;
   color: white;
-  border-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
   border: 1px solid #262626;
-  margin: 15px 30px;
+  margin: 2px 30px 15px 0;
+  left:0;
   font-size: 29px;
   background: #262626;
   height: 45px;

@@ -6,12 +6,14 @@
 package com.threeguys.controllers.cars;
 
 import Helper.ConvHtml;
+import com.threeguys.services.Reviews;
 import com.threeguys.services.ReviewsServ_Service;
 import interfaceapp.Car;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Base64;
 import java.util.List;
+import java.util.Objects;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -63,7 +65,42 @@ public class CarDetails extends HttpServlet {
             //Getting Comments from Service   
             com.threeguys.services.ReviewsServ Revport = revService.getReviewsServPort();
             java.util.List<com.threeguys.services.Reviews> reviews = Revport.getListByCarID(id);
-                
+            
+            if(request.getSession().getAttribute("SucCtlMsg") != null) {
+                request.setAttribute("SucCtlMsg", request.getSession().getAttribute("SucCtlMsg"));
+                request.getSession().removeAttribute("SucCtlMsg");
+            }
+            
+            if(request.getSession().getAttribute("ErrCtlMsg") != null) {
+                request.setAttribute("ErrCtlMsg", request.getSession().getAttribute("ErrCtlMsg"));
+                request.getSession().removeAttribute("ErrCtlMsg");
+            }
+            
+            if (request.getParameter("action") != null) {
+                if (request.getParameter("action").equalsIgnoreCase("edit")) {
+                     request.setAttribute("action", "edit");
+                    int carID = 0;
+                    int reviewID = 0;
+                    if (request.getParameter("reviewID") != null && request.getParameter("id") != null){
+                        try{
+                            carID = Integer.parseInt(request.getParameter("id"));
+                            reviewID = Integer.parseInt(request.getParameter("reviewID"));
+                        } catch (Exception e) {
+                            throw new Exception("Error Processing ID");
+                        }
+                    }
+                    if (carID == 0 || reviewID == 0) throw new Exception("No IDs supplied");
+                    Reviews review = Revport.getListByID(reviewID);
+                  //  if (review.getUserID(), request.getSession().getAttribute("uid"))) throw new Exception("Unauthorized to edit this review");
+                    request.setAttribute("review", review);
+                } else {
+                    request.setAttribute("action", "add");
+                }
+                 
+            } else {
+                request.setAttribute("action", "add");
+            }
+            
             // Setting Attributes before forward to the JSP
                 request.setAttribute("model", car);
                 request.setAttribute("reviews", reviews);
@@ -79,8 +116,8 @@ public class CarDetails extends HttpServlet {
                  response.setContentType("text/html;charset=UTF-8");
       
                  PrintWriter out = response.getWriter();
-
-                out.println("<p>Error Fetching the ID of the car</p>");
+                String Message = e.getMessage();
+                out.println("<p>Error: " + Message + "</p>");
                 
             }   
         

@@ -3,12 +3,12 @@
     <system systemId="http://localhost:8080/WebService/CarsImpService?WSDL" uri="wsdl/localhost_8080/WebService/CarsImpService.wsdl"/>
     <system systemId="http://localhost:8080/WebService/CarsImpService?wsdl=1" uri="wsdl/localhost_8080/WebService/CarsImpService.wsdl_1.wsdl"/>
     <system systemId="http://localhost:8080/WebService/CarsImpService?xsd=1" uri="wsdl/localhost_8080/WebService/CarsImpService.xsd_1.xsd"/>
-    <system systemId="http://localhost:8080/WebService/UsersImpService?WSDL" uri="wsdl/localhost_8080/WebService/UsersImpService.wsdl"/>
-    <system systemId="http://localhost:8080/WebService/UsersImpService?wsdl=1" uri="wsdl/localhost_8080/WebService/UsersImpService.wsdl_1.wsdl"/>
-    <system systemId="http://localhost:8080/WebService/UsersImpService?xsd=1" uri="wsdl/localhost_8080/WebService/UsersImpService.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/WebService/CarImpService?WSDL" uri="wsdl/localhost_8080/WebService/CarImpService.wsdl"/>
     <system systemId="http://localhost:8080/WebService/CarImpService?wsdl=1" uri="wsdl/localhost_8080/WebService/CarImpService.wsdl_1.wsdl"/>
     <system systemId="http://localhost:8080/WebService/CarImpService?xsd=1" uri="wsdl/localhost_8080/WebService/CarImpService.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/WebService/ReviewsServ?WSDL" uri="wsdl/localhost_8080/WebService/ReviewsServ.wsdl"/>
     <system systemId="http://localhost:8080/WebService/ReviewsServ?xsd=1" uri="wsdl/localhost_8080/WebService/ReviewsServ.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/WebService/UsersImpService?WSDL" uri="wsdl/localhost_8080/WebService/UsersImpService.wsdl"/>
+    <system systemId="http://localhost:8080/WebService/UsersImpService?wsdl=1" uri="wsdl/localhost_8080/WebService/UsersImpService.wsdl_1.wsdl"/>
+    <system systemId="http://localhost:8080/WebService/UsersImpService?xsd=1" uri="wsdl/localhost_8080/WebService/UsersImpService.xsd_1.xsd"/>
 </catalog>

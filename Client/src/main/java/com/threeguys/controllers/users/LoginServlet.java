@@ -80,15 +80,23 @@ public class LoginServlet extends HttpServlet {
 
         UsersImpService service = new UsersImpService();
         IUser port = service.getUsersImpPort();
-        boolean offerList = port.loginUser(userName, password);
-
-        if (offerList) //If function returns success string then user will be rooted to Home page
+        Integer uid = port.loginUser(userName, password);
+        
+        if (uid != null) //If function returns success string then user will be rooted to Home page
         {
-            request.setAttribute("userName", userName); //with setAttribute() you can define a "key" and value pair so that you can get it in future using getAttribute("key")
-            request.getRequestDispatcher("/index.jsp").forward(request, response);//RequestDispatcher is used to send the control to the invoked page.
+            if (uid != 0)
+            {
+                request.getSession().setAttribute("uid", uid);
+                request.getSession().setAttribute("userName", userName); //with setAttribute() you can define a "key" and value pair so that you can get it in future using getAttribute("key")
+                request.setAttribute("userName", userName); //with setAttribute() you can define a "key" and value pair so that you can get it in future using getAttribute("key")
+                request.getRequestDispatcher("/table.jsp").forward(request, response);//RequestDispatcher is used to send the control to the invoked page.
+            } else {
+                request.setAttribute("errMessage",false); //If authenticateUser() function returnsother than SUCCESS string it will be sent to Login page again. Here the error message returned from function has been stored in a errMessage key.
+                request.getRequestDispatcher("/Login.jsp").forward(request, response);//forwarding the request
+            }
         } else {
-            request.setAttribute("errMessage", offerList); //If authenticateUser() function returnsother than SUCCESS string it will be sent to Login page again. Here the error message returned from function has been stored in a errMessage key.
-            request.getRequestDispatcher("/login.jsp").forward(request, response);//forwarding the request
+            request.setAttribute("errMessage",false); //If authenticateUser() function returnsother than SUCCESS string it will be sent to Login page again. Here the error message returned from function has been stored in a errMessage key.
+            request.getRequestDispatcher("/Login.jsp").forward(request, response);//forwarding the request
         }
     }
 

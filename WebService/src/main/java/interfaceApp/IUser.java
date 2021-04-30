@@ -32,5 +32,5 @@ public interface IUser {
     
     @WebMethod
     @WebResult(name = "loginAuth")
-    public Boolean loginUser(String username, String pass);
+    public int loginUser(String username, String pass);
 }

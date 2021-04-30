@@ -14,8 +14,14 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page ${param.id}</title>
+          <link rel="stylesheet" href="style.css">
     </head>
         <body>
+            <%@ include file="/_shared/userbar.jsp"%>
+            <c:if test="${empty sessionScope.uid}">
+            <p style="color:red;">Unauthorized</p>
+        </c:if>
+        <c:if test="${not empty sessionScope.uid}">
         <br />
         <h2>Cars Web Service</h2>
         <form action="CarSearchServlet" method="POST" enctype="multipart/form-data">
@@ -60,5 +66,6 @@
                 </tr>                
             </table>
         </form>
+    </c:if>
     </body>
 </html>
