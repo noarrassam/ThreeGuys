@@ -8,6 +8,7 @@ package com.threeguys.services;
 import com.threeguys.entites.Reviews;
 import com.threeguys.controllers.ReviewsJpaController;
 import com.threeguys.exceptions.SOAPException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -54,6 +55,65 @@ public class ReviewsServ {
              
              return review;
     }
+    
+    
+        @WebMethod(operationName = "getListByCarID")
+    public List<Reviews> getListByCarID(@WebParam(name = "id") int id) throws SOAPException {
+        
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("my_persistence_unit");
+        ReviewsJpaController reviewController = new ReviewsJpaController(emf);
+       
+        if (id == 0)
+            throw new SOAPException("ID cannot be zero");
+        
+       //find review in database
+        List<Reviews> reviews;
+             try {
+                reviews = reviewController.findReviewsByCarID(id);
+                
+            } catch (Exception ex) {
+                Logger.getLogger(ReviewsServ.class.getName()).log(Level.SEVERE, null, ex);
+               throw new SOAPException("Could not find review in Databse");
+            }
+             
+             return reviews;
+    }
+    
+   
+    
+    
+    public List<Reviews> searchListByCarID(@WebParam(name = "id") int id, @WebParam(name = "searchWord") String word) throws SOAPException {
+        
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("my_persistence_unit");
+        ReviewsJpaController reviewController = new ReviewsJpaController(emf);
+       
+        if (id == 0)
+            throw new SOAPException("ID cannot be zero");
+        
+       //find review in database
+        List<Reviews> reviews = new ArrayList<Reviews>();
+             try {
+                if (word != null) {
+                    if (!word.equalsIgnoreCase("")) {
+                        reviews = reviewController.findReviewsByCarID(id,word);
+                    } else {
+                        reviews = reviewController.findReviewsByCarID(id);
+                    }
+                } else {
+                    reviews = reviewController.findReviewsByCarID(id);
+                }
+                    
+                
+            } catch (Exception ex) {
+                Logger.getLogger(ReviewsServ.class.getName()).log(Level.SEVERE, null, ex);
+               throw new SOAPException("Could not find review in Databse");
+            }
+             
+             return reviews;
+    }
+    
+    
+    
     
     @WebMethod(operationName = "createNew")
     public boolean createNew(  @WebParam(name = "userID") int userID,

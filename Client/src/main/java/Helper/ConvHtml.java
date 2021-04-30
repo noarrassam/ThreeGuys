@@ -47,15 +47,15 @@ public class ConvHtml {
             }
 
             String base64 = Base64.getEncoder().encodeToString(offer.getImage());
-
-            table += "<tr><td>" + offer.getId() + "</td>"
-                    + "<td>" + offer.getBrand() + "</td>"
-                    + "<td>" + offer.getModel() + "</td>"
-                    + "<td>" + offer.getEngine() + "</td>"
-                    + "<td>" + offer.getTransmission() + "</td>"
-                    + "<td>" + offer.getYear() + "</td>"
-                    + "<td>" + offer.getPrice() + "</td>"
-                    + "<td>" + "<img src=\"data:image/jpg;base64," + base64 + "\" width=\"180px\" height=\"100px\"/></td>";
+            
+            table += "<tr><td class=\"clickableTD\" onclick=\"window.location='./details?id=" + offer.getId() +"'\">" + offer.getId() + "</td>"
+                    + "<td class=\"clickableTD\" onclick=\"window.location='./details?id=" + offer.getId() +"'\">" + offer.getBrand() + "</td>"
+                    + "<td class=\"clickableTD\" onclick=\"window.location='./details?id=" + offer.getId() +"'\">" + offer.getModel() + "</td>"
+                    + "<td class=\"clickableTD\" onclick=\"window.location='./details?id=" + offer.getId() +"'\">" + offer.getEngine() + "</td>"
+                    + "<td class=\"clickableTD\" onclick=\"window.location='./details?id=" + offer.getId() +"'\">" + offer.getTransmission() + "</td>"
+                    + "<td class=\"clickableTD\" onclick=\"window.location='./details?id=" + offer.getId() +"'\">" + offer.getYear() + "</td>"
+                    + "<td class=\"clickableTD\" onclick=\"window.location='./details?id=" + offer.getId() +"'\">" + offer.getPrice() + "</td>"
+                    + "<td class=\"clickableTD\" onclick=\"window.location='./details?id=" + offer.getId() +"'\">" + "<img src=\"data:image/jpg;base64," + base64 + "\" width=\"180px\" height=\"100px\"/></td>";
         }
         table += "</table>";
 

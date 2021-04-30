@@ -152,10 +152,17 @@ public class CarJpaController implements Serializable {
     public List<Car> findCarByName(String brand){
         EntityManager em = getEntityManager();
         try {
-            return 
+            if (brand != null) {
+                return 
                  em.createQuery("SELECT c FROM Car c Where c.brand LIKE :brndName ")
                     .setParameter("brndName", brand)
                     .getResultList();
+            } else {
+                return getAllCars();
+            }
+            
+            
+            
         } finally {
             em.close();
         }

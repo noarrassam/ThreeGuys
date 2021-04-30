@@ -26,6 +26,11 @@ public interface ICar {
     @WebResult(name="allCarsByBrand")
     public List<Car> getCar(String brand);
   
+    
+    @WebMethod
+    @WebResult(name="getCarbyID")
+    public Car getCarbyID(int id);
+            
     @WebMethod
     @WebResult(name="insertCar")
     public Boolean insertCar(String brand, String model, String engine, String transmission, 

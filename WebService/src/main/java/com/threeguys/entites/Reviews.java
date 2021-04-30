@@ -28,6 +28,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Reviews.findAll", query = "SELECT r FROM Reviews r"),
     @NamedQuery(name = "Reviews.findByReviewID", query = "SELECT r FROM Reviews r WHERE r.reviewID = :reviewID"),
     @NamedQuery(name = "Reviews.findByCarID", query = "SELECT r FROM Reviews r WHERE r.carID = :carID"),
+    @NamedQuery(name = "Reviews.searchByCarID", query = "SELECT r FROM Reviews r WHERE r.carID = :carID AND (r.description like :word or r.title like :word )"),
     @NamedQuery(name = "Reviews.findByUserID", query = "SELECT r FROM Reviews r WHERE r.userID = :userID"),
     @NamedQuery(name = "Reviews.findByTitle", query = "SELECT r FROM Reviews r WHERE r.title = :title"),
     @NamedQuery(name = "Reviews.findByDescription", query = "SELECT r FROM Reviews r WHERE r.description = :description"),

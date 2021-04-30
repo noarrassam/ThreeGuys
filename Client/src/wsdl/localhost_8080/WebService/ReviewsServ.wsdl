@@ -19,11 +19,23 @@
 <message name="getListByIDResponse">
 <part name="parameters" element="tns:getListByIDResponse"/>
 </message>
+<message name="getListByCarID">
+<part name="parameters" element="tns:getListByCarID"/>
+</message>
+<message name="getListByCarIDResponse">
+<part name="parameters" element="tns:getListByCarIDResponse"/>
+</message>
 <message name="getList">
 <part name="parameters" element="tns:getList"/>
 </message>
 <message name="getListResponse">
 <part name="parameters" element="tns:getListResponse"/>
+</message>
+<message name="searchListByCarID">
+<part name="parameters" element="tns:searchListByCarID"/>
+</message>
+<message name="searchListByCarIDResponse">
+<part name="parameters" element="tns:searchListByCarIDResponse"/>
 </message>
 <message name="remove">
 <part name="parameters" element="tns:remove"/>
@@ -48,9 +60,19 @@
 <output wsam:Action="http://services.threeguys.com/ReviewsServ/getListByIDResponse" message="tns:getListByIDResponse"/>
 <fault message="tns:SOAPException" name="SOAPException" wsam:Action="http://services.threeguys.com/ReviewsServ/getListByID/Fault/SOAPException"/>
 </operation>
+<operation name="getListByCarID">
+<input wsam:Action="http://services.threeguys.com/ReviewsServ/getListByCarIDRequest" message="tns:getListByCarID"/>
+<output wsam:Action="http://services.threeguys.com/ReviewsServ/getListByCarIDResponse" message="tns:getListByCarIDResponse"/>
+<fault message="tns:SOAPException" name="SOAPException" wsam:Action="http://services.threeguys.com/ReviewsServ/getListByCarID/Fault/SOAPException"/>
+</operation>
 <operation name="getList">
 <input wsam:Action="http://services.threeguys.com/ReviewsServ/getListRequest" message="tns:getList"/>
 <output wsam:Action="http://services.threeguys.com/ReviewsServ/getListResponse" message="tns:getListResponse"/>
+</operation>
+<operation name="searchListByCarID">
+<input wsam:Action="http://services.threeguys.com/ReviewsServ/searchListByCarIDRequest" message="tns:searchListByCarID"/>
+<output wsam:Action="http://services.threeguys.com/ReviewsServ/searchListByCarIDResponse" message="tns:searchListByCarIDResponse"/>
+<fault message="tns:SOAPException" name="SOAPException" wsam:Action="http://services.threeguys.com/ReviewsServ/searchListByCarID/Fault/SOAPException"/>
 </operation>
 <operation name="remove">
 <input wsam:Action="http://services.threeguys.com/ReviewsServ/removeRequest" message="tns:remove"/>
@@ -89,6 +111,18 @@
 <soap:fault name="SOAPException" use="literal"/>
 </fault>
 </operation>
+<operation name="getListByCarID">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="SOAPException">
+<soap:fault name="SOAPException" use="literal"/>
+</fault>
+</operation>
 <operation name="getList">
 <soap:operation soapAction=""/>
 <input>
@@ -97,6 +131,18 @@
 <output>
 <soap:body use="literal"/>
 </output>
+</operation>
+<operation name="searchListByCarID">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="SOAPException">
+<soap:fault name="SOAPException" use="literal"/>
+</fault>
 </operation>
 <operation name="remove">
 <soap:operation soapAction=""/>

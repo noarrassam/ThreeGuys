@@ -127,6 +127,30 @@ public class ReviewsJpaController implements Serializable {
             em.close();
         }
     }
+    
+    public List<Reviews> findReviewsByCarID(Integer id) {
+        EntityManager em = getEntityManager();
+        try {
+            Query q = em.createNamedQuery("Reviews.findByCarID");
+            q.setParameter("carID", id);
+            return q.getResultList();
+        } finally {
+            em.close();
+        }
+    }
+    
+    
+    public List<Reviews> findReviewsByCarID(Integer id, String word) {
+        EntityManager em = getEntityManager();
+        try {
+            Query q = em.createNamedQuery("Reviews.searchByCarID");
+            q.setParameter("carID", id);
+            q.setParameter("word", '%'+word+'%');
+            return q.getResultList();
+        } finally {
+            em.close();
+        }
+    }
 
     public int getReviewsCount() {
         EntityManager em = getEntityManager();

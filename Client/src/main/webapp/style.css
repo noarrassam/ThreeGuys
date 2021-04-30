@@ -464,9 +464,43 @@ form#searchBox input {
 		table.table td i {
 			font-size: 19px;
 		}
+                    
+                
+                div.reviewTitle i {
+                    color:goldenrod;
+                }
+                
+                div.reviewTitle  {
+                    font-weight: bold;
+                }
+                
+                div.review {
+                   padding: 1em;
+                }
+                
+                div.review:hover {
+                   background-color: #eee;
+                }
+                
+                div.review .actionButtons i {
+                    padding: 1em;
+                }
+                
+                 div.review .actionButtons i:hover {
+                    padding: 1em;
+                    background-color: white;
+                }
+                
+                div.review .actionButtons{
+                    display:none;
+                    float:right;
+                }
+                
+                div.review:hover .actionButtons{
+                    display:block
+                }
 
-
-main section:first-child {
+main section:not(:first-child){
   background: var(--white);
   width:80%;
   margin: 0 auto;
@@ -500,6 +534,10 @@ main section.elements p.comments {
 	
 }
 
+.rmdT .carimage {
+    width: 100%;
+  height: auto;
+}
 
 
 .navNavBar{

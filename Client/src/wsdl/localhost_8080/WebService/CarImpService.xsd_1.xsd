@@ -18,6 +18,10 @@
 
 <xs:element name="getCarResponse" type="tns:getCarResponse"/>
 
+<xs:element name="getCarbyID" type="tns:getCarbyID"/>
+
+<xs:element name="getCarbyIDResponse" type="tns:getCarbyIDResponse"/>
+
 <xs:element name="insertCar" type="tns:insertCar"/>
 
 <xs:element name="insertCarResponse" type="tns:insertCarResponse"/>
@@ -106,6 +110,18 @@
 <xs:complexType name="deletetCarResponse">
 <xs:sequence>
 <xs:element name="deleteCar" type="xs:boolean" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getCarbyID">
+<xs:sequence>
+<xs:element name="arg0" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getCarbyIDResponse">
+<xs:sequence>
+<xs:element name="getCarbyID" type="tns:car" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 </xs:schema>

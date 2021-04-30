@@ -31,6 +31,12 @@ public class CarImp {
         return car.findCarByName(brand);
     }
     
+    public Car getCarbyID(int id) {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("my_persistence_unit");
+        CarJpaController car = new CarJpaController(emf);
+        return car.findCar(id);
+    }
+    
     public Boolean insertCar(String brand, String model, String engine, String transmission, 
             int year, int price, String filename, byte[] image) throws Exception {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("my_persistence_unit");
