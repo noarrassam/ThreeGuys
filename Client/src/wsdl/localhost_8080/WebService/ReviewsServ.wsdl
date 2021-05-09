@@ -4,44 +4,14 @@
 <xsd:import namespace="http://services.threeguys.com/" schemaLocation="http://localhost:8080/WebService/ReviewsServ?xsd=1"/>
 </xsd:schema>
 </types>
-<message name="createNew">
-<part name="parameters" element="tns:createNew"/>
-</message>
-<message name="createNewResponse">
-<part name="parameters" element="tns:createNewResponse"/>
-</message>
-<message name="SOAPException">
-<part name="fault" element="tns:SOAPException"/>
-</message>
-<message name="getListByID">
-<part name="parameters" element="tns:getListByID"/>
-</message>
-<message name="getListByIDResponse">
-<part name="parameters" element="tns:getListByIDResponse"/>
-</message>
-<message name="getListByCarID">
-<part name="parameters" element="tns:getListByCarID"/>
-</message>
-<message name="getListByCarIDResponse">
-<part name="parameters" element="tns:getListByCarIDResponse"/>
-</message>
-<message name="getList">
-<part name="parameters" element="tns:getList"/>
-</message>
-<message name="getListResponse">
-<part name="parameters" element="tns:getListResponse"/>
-</message>
-<message name="searchListByCarID">
-<part name="parameters" element="tns:searchListByCarID"/>
-</message>
-<message name="searchListByCarIDResponse">
-<part name="parameters" element="tns:searchListByCarIDResponse"/>
-</message>
 <message name="remove">
 <part name="parameters" element="tns:remove"/>
 </message>
 <message name="removeResponse">
 <part name="parameters" element="tns:removeResponse"/>
+</message>
+<message name="SOAPException">
+<part name="fault" element="tns:SOAPException"/>
 </message>
 <message name="update">
 <part name="parameters" element="tns:update"/>
@@ -49,31 +19,37 @@
 <message name="updateResponse">
 <part name="parameters" element="tns:updateResponse"/>
 </message>
+<message name="getListByCarID">
+<part name="parameters" element="tns:getListByCarID"/>
+</message>
+<message name="getListByCarIDResponse">
+<part name="parameters" element="tns:getListByCarIDResponse"/>
+</message>
+<message name="getListByID">
+<part name="parameters" element="tns:getListByID"/>
+</message>
+<message name="getListByIDResponse">
+<part name="parameters" element="tns:getListByIDResponse"/>
+</message>
+<message name="createNew">
+<part name="parameters" element="tns:createNew"/>
+</message>
+<message name="createNewResponse">
+<part name="parameters" element="tns:createNewResponse"/>
+</message>
+<message name="searchListByCarID">
+<part name="parameters" element="tns:searchListByCarID"/>
+</message>
+<message name="searchListByCarIDResponse">
+<part name="parameters" element="tns:searchListByCarIDResponse"/>
+</message>
+<message name="getList">
+<part name="parameters" element="tns:getList"/>
+</message>
+<message name="getListResponse">
+<part name="parameters" element="tns:getListResponse"/>
+</message>
 <portType name="ReviewsServ">
-<operation name="createNew">
-<input wsam:Action="http://services.threeguys.com/ReviewsServ/createNewRequest" message="tns:createNew"/>
-<output wsam:Action="http://services.threeguys.com/ReviewsServ/createNewResponse" message="tns:createNewResponse"/>
-<fault message="tns:SOAPException" name="SOAPException" wsam:Action="http://services.threeguys.com/ReviewsServ/createNew/Fault/SOAPException"/>
-</operation>
-<operation name="getListByID">
-<input wsam:Action="http://services.threeguys.com/ReviewsServ/getListByIDRequest" message="tns:getListByID"/>
-<output wsam:Action="http://services.threeguys.com/ReviewsServ/getListByIDResponse" message="tns:getListByIDResponse"/>
-<fault message="tns:SOAPException" name="SOAPException" wsam:Action="http://services.threeguys.com/ReviewsServ/getListByID/Fault/SOAPException"/>
-</operation>
-<operation name="getListByCarID">
-<input wsam:Action="http://services.threeguys.com/ReviewsServ/getListByCarIDRequest" message="tns:getListByCarID"/>
-<output wsam:Action="http://services.threeguys.com/ReviewsServ/getListByCarIDResponse" message="tns:getListByCarIDResponse"/>
-<fault message="tns:SOAPException" name="SOAPException" wsam:Action="http://services.threeguys.com/ReviewsServ/getListByCarID/Fault/SOAPException"/>
-</operation>
-<operation name="getList">
-<input wsam:Action="http://services.threeguys.com/ReviewsServ/getListRequest" message="tns:getList"/>
-<output wsam:Action="http://services.threeguys.com/ReviewsServ/getListResponse" message="tns:getListResponse"/>
-</operation>
-<operation name="searchListByCarID">
-<input wsam:Action="http://services.threeguys.com/ReviewsServ/searchListByCarIDRequest" message="tns:searchListByCarID"/>
-<output wsam:Action="http://services.threeguys.com/ReviewsServ/searchListByCarIDResponse" message="tns:searchListByCarIDResponse"/>
-<fault message="tns:SOAPException" name="SOAPException" wsam:Action="http://services.threeguys.com/ReviewsServ/searchListByCarID/Fault/SOAPException"/>
-</operation>
 <operation name="remove">
 <input wsam:Action="http://services.threeguys.com/ReviewsServ/removeRequest" message="tns:remove"/>
 <output wsam:Action="http://services.threeguys.com/ReviewsServ/removeResponse" message="tns:removeResponse"/>
@@ -84,66 +60,33 @@
 <output wsam:Action="http://services.threeguys.com/ReviewsServ/updateResponse" message="tns:updateResponse"/>
 <fault message="tns:SOAPException" name="SOAPException" wsam:Action="http://services.threeguys.com/ReviewsServ/update/Fault/SOAPException"/>
 </operation>
+<operation name="getListByCarID">
+<input wsam:Action="http://services.threeguys.com/ReviewsServ/getListByCarIDRequest" message="tns:getListByCarID"/>
+<output wsam:Action="http://services.threeguys.com/ReviewsServ/getListByCarIDResponse" message="tns:getListByCarIDResponse"/>
+<fault message="tns:SOAPException" name="SOAPException" wsam:Action="http://services.threeguys.com/ReviewsServ/getListByCarID/Fault/SOAPException"/>
+</operation>
+<operation name="getListByID">
+<input wsam:Action="http://services.threeguys.com/ReviewsServ/getListByIDRequest" message="tns:getListByID"/>
+<output wsam:Action="http://services.threeguys.com/ReviewsServ/getListByIDResponse" message="tns:getListByIDResponse"/>
+<fault message="tns:SOAPException" name="SOAPException" wsam:Action="http://services.threeguys.com/ReviewsServ/getListByID/Fault/SOAPException"/>
+</operation>
+<operation name="createNew">
+<input wsam:Action="http://services.threeguys.com/ReviewsServ/createNewRequest" message="tns:createNew"/>
+<output wsam:Action="http://services.threeguys.com/ReviewsServ/createNewResponse" message="tns:createNewResponse"/>
+<fault message="tns:SOAPException" name="SOAPException" wsam:Action="http://services.threeguys.com/ReviewsServ/createNew/Fault/SOAPException"/>
+</operation>
+<operation name="searchListByCarID">
+<input wsam:Action="http://services.threeguys.com/ReviewsServ/searchListByCarIDRequest" message="tns:searchListByCarID"/>
+<output wsam:Action="http://services.threeguys.com/ReviewsServ/searchListByCarIDResponse" message="tns:searchListByCarIDResponse"/>
+<fault message="tns:SOAPException" name="SOAPException" wsam:Action="http://services.threeguys.com/ReviewsServ/searchListByCarID/Fault/SOAPException"/>
+</operation>
+<operation name="getList">
+<input wsam:Action="http://services.threeguys.com/ReviewsServ/getListRequest" message="tns:getList"/>
+<output wsam:Action="http://services.threeguys.com/ReviewsServ/getListResponse" message="tns:getListResponse"/>
+</operation>
 </portType>
 <binding name="ReviewsServPortBinding" type="tns:ReviewsServ">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="createNew">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-<fault name="SOAPException">
-<soap:fault name="SOAPException" use="literal"/>
-</fault>
-</operation>
-<operation name="getListByID">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-<fault name="SOAPException">
-<soap:fault name="SOAPException" use="literal"/>
-</fault>
-</operation>
-<operation name="getListByCarID">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-<fault name="SOAPException">
-<soap:fault name="SOAPException" use="literal"/>
-</fault>
-</operation>
-<operation name="getList">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="searchListByCarID">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-<fault name="SOAPException">
-<soap:fault name="SOAPException" use="literal"/>
-</fault>
-</operation>
 <operation name="remove">
 <soap:operation soapAction=""/>
 <input>
@@ -167,6 +110,63 @@
 <fault name="SOAPException">
 <soap:fault name="SOAPException" use="literal"/>
 </fault>
+</operation>
+<operation name="getListByCarID">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="SOAPException">
+<soap:fault name="SOAPException" use="literal"/>
+</fault>
+</operation>
+<operation name="getListByID">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="SOAPException">
+<soap:fault name="SOAPException" use="literal"/>
+</fault>
+</operation>
+<operation name="createNew">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="SOAPException">
+<soap:fault name="SOAPException" use="literal"/>
+</fault>
+</operation>
+<operation name="searchListByCarID">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="SOAPException">
+<soap:fault name="SOAPException" use="literal"/>
+</fault>
+</operation>
+<operation name="getList">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
 </operation>
 </binding>
 <service name="ReviewsServ">
