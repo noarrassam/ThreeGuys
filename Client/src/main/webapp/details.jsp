@@ -27,7 +27,7 @@
 	<main class="rmdT">
                 <section class="rmdT">
                 <form class="toolBox" action="details" id="searchBox"> 			
-			<button type="submit" formaction="./CarServlet" formmethod="get"><i class="fas fa-arrow-left"> Back to List</i></button>
+			<button type="submit" formaction="./table.jsp" formmethod="get"><i class="fas fa-arrow-left"> Back to List</i></button>
 		</form>
 		<h1>${requestScope.model.brand} Car Details</h1>
                 </section>
