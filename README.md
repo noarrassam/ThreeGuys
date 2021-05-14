@@ -1,4 +1,7 @@
-# Names: Noar Rassam, Rashed Dawabsheh, Herman Justino
+# Names 
+Noar Rassam
+Rashed Dawabsheh
+Herman Justino
 
 # Web Services Project
 
