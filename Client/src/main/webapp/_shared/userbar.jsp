@@ -46,7 +46,7 @@
                     <a href="${pageContext.request.contextPath}/Login.jsp"> <i class="fas fa-sign-in-alt"></i> 
                         <span>Sign in</span>
                     </a>
-                    <a href="${pageContext.request.contextPath}/Register.jsp"  > <i class="fas fa-car"></i>
+                    <a href="${pageContext.request.contextPath}/Register.jsp"> <i class="fas fa-car"></i>
                         <span>Register</span>
                     </a>
                 </c:when>
