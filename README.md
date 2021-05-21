@@ -20,6 +20,12 @@ It's a web services project that let users to add a feedback about specific car,
 
 * WSDL.
 
+## License & Copyright
+
+© Noar Rassam
+
+Licensed under the [MIT License](LICENSE).
+
 ## Features
 * Manage User Info.
 
