@@ -22,7 +22,7 @@ It's a web services project that let users to add a feedback about specific car,
 
 ## License & Copyright
 
-© Noar Rassam
+© Noar Rassam, Rashed Dawabsheh, Herman Justino
 
 Licensed under the [MIT License](LICENSE).
 
